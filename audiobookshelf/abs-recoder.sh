@@ -33,7 +33,9 @@ else
   FF_FAST=""
 fi
 
-SAVINGS_FILE="$(mktemp)"
+SAVINGS_FILE="/tmp/abs-recoder-savings.$$.txt"
+> "$SAVINGS_FILE"
+
 export SRC_ROOT DEST_ROOT TARGET_GLOB PARALLEL DRY_RUN AUDIO_BITRATE AUDIO_CHANNELS DUR_RATIO_MIN FF_FAST SAVINGS_FILE ON_EXT_CHANGE DEBUG STRICT_ERRORS
 
 # xtrace log only when DEBUG=1
@@ -182,6 +184,12 @@ process_one() {
     }
 
     new_bytes=$(get_bytes "$out") || fail "stat new bytes failed" "$out" 2 || return $?
+
+    # Ensure new file is smaller before proceeding
+    if (( new_bytes >= old_bytes )); then
+      rm -f -- "$out"
+      fail "new file is not smaller (old=${old_bytes} new=${new_bytes})" "$file" 13 || return $?
+    fi
 
     # Report per-file sizes
     old_mb=$(fmt_mb "$old_bytes")
