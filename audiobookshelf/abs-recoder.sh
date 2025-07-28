@@ -26,6 +26,11 @@ AUDIO_CHANNELS=1
 # Duration acceptance threshold (e.g., 0.98 = new must be >=98% of old)
 DUR_RATIO_MIN="0.98"
 
+RUN_ID="$(date +%s)-$$"
+ERRLOG="/tmp/recode_ffmpeg.${RUN_ID}.stderr"
+: > "$ERRLOG"
+export ERRLOG
+
 # Fast probe toggle (corrected logic)
 if [[ "${FAST_PROBE:-0}" -eq 1 ]]; then
   FF_FAST="-analyzeduration 2M -probesize 2M"
@@ -121,10 +126,20 @@ process_one() {
 
   # Transcode to a temp file under /tmp, then finalize
   tmp_out="$out.enc.$$"
+
+  # Ensure any tmp_out is deleted on exit
+  cleanup_tmp() {
+    if [[ -n "$tmp_out" && -e "$tmp_out" ]]; then
+      [[ "${DEBUG:-0}" -eq 1 ]] && echo "Cleaning up leftover $tmp_out" >> /tmp/abs-recoder-cmds.log
+      rm -f -- "$tmp_out"
+    fi
+  }
+  trap cleanup_tmp EXIT
+
   printf "Encoding %s\n" "$file"
   [ -e "$tmp_out" ] && rm -f -- "$tmp_out"
 
-  errlog="/tmp/recode_ffmpeg.$$.stderr"; : > "$errlog"
+  errlog="$ERRLOG"; : > "$errlog"
 
   # Helper to run encode (allows retry with extra args)
   run_encode() {
