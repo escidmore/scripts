@@ -307,5 +307,3 @@ if [[ -s "$FAILED_LOG" ]]; then
 else
   echo -e "\nNo failures recorded."
 fi
-
-rm -f "$SAVINGS_FILE"
