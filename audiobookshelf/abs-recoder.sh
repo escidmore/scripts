@@ -10,6 +10,8 @@ DRY_RUN=0                                      # 1=dry-run (no replace), 0=repla
 DEBUG=0                                        # toggle debugging
 FAST_PROBE=0                                   # 1 = use -analyzeduration/-probesize
 STRICT_ERRORS=0                                # 1 = add -xerror (strict), 0 = omit (more tolerant)
+TARGET_CHOWN=568:568                           # desired ownership for all target files
+TARGET_CHMOD=774                                # desired permissions for all target files
 
 # Niceness (CPU) and I/O priority
 NICE="${NICE:-nice -n 19}"          # lowest CPU priority
@@ -41,7 +43,11 @@ fi
 SAVINGS_FILE="/tmp/abs-recoder-savings.$$.txt"
 > "$SAVINGS_FILE"
 
-export SRC_ROOT DEST_ROOT TARGET_GLOB PARALLEL DRY_RUN AUDIO_BITRATE AUDIO_CHANNELS DUR_RATIO_MIN FF_FAST SAVINGS_FILE ON_EXT_CHANGE DEBUG STRICT_ERRORS
+export SRC_ROOT DEST_ROOT TARGET_GLOB PARALLEL DRY_RUN AUDIO_BITRATE AUDIO_CHANNELS DUR_RATIO_MIN FF_FAST SAVINGS_FILE 
+export ON_EXT_CHANGE DEBUG STRICT_ERRORS TARGET_CHOWN TARGET_CHMOD
+
+sudo chown -R "${TARGET_CHOWN:-568:568}" /mnt/cephfs/audiobooks/audiobooks
+sudo chmod -R "${TARGET_CHMOD:-774}" /mnt/cephfs/audiobooks/audiobooks
 
 # xtrace log only when DEBUG=1
 if [[ "${DEBUG:-0}" -eq 1 ]]; then
@@ -225,6 +231,7 @@ process_one() {
             chown --reference="$attrref" "$file" 2>/dev/null || true
             chmod --reference="$attrref" "$file" 2>/dev/null || true
             touch -r "$attrref" "$file" 2>/dev/null || true
+            rm -f -- "$out"
           else
             rm -f -- "$tmp_src" "$attrref"
             fail "atomic replace (mv) failed" "$file" 4 || return $?
