@@ -1,0 +1,102 @@
+# Daily HUD Configuration
+# Copy to ~/.config/daily-hud/config.yaml and customize
+
+# 1Password references for secrets (using op:// URIs)
+secrets:
+  todoist_token: "op://Personal/Todoist/api_token"
+  github_token: "op://Personal/GitHub CLI/token"
+  truenas_api_key: "op://Homelab/TrueNAS/api_key"
+
+# Thresholds for warnings/errors
+thresholds:
+  disk_warning_percent: 80
+  disk_critical_percent: 90
+  cert_warning_days: 14
+  cert_critical_days: 7
+  domain_warning_days: 30
+  snapshot_stale_hours: 24
+  pod_memory_warning_percent: 80
+  pod_cpu_warning_percent: 80
+  check_timeout_seconds: 30
+
+# TrueNAS configuration
+truenas:
+  host: "truenas.local"
+  # API key retrieved from secrets.truenas_api_key
+
+# SSH-managed Linux hosts
+ssh_hosts:
+  - name: "webserver"
+    host: "web.example.com"
+    user: "admin"
+    checks:
+      - disk
+      - updates
+  - name: "nas-backup"
+    host: "192.168.1.50"
+    user: "root"
+    checks:
+      - disk  # No package manager, skip updates
+
+# Windows hosts
+windows_hosts:
+  - name: "workstation"
+    host: "192.168.1.100"
+    method: ssh  # or 'winrm'
+    user: "admin"
+    checks:
+      - disk
+      - updates
+
+# SSL certificates to monitor (HTTPS URLs or host:port)
+certificates:
+  - https://myapp.example.com
+  - https://api.example.com
+  - mail.example.com:993  # IMAP
+  - mail.example.com:465  # SMTPS
+
+# Domains to check expiration via WHOIS
+domains:
+  - example.com
+  - myapp.io
+
+# GitHub configuration
+github:
+  username: "your-username"
+  include_orgs: true  # Check org repos too
+
+# Todoist configuration
+todoist:
+  # Optionally filter to specific projects
+  projects: []  # Empty = all projects
+
+# Kubernetes configuration
+kubernetes:
+  context: ""  # Empty = current context
+  namespaces: []  # Empty = all namespaces
+  ignore_namespaces:
+    - kube-system
+    - kube-public
+    - kube-node-lease
+
+# Container vulnerability scanning
+containers:
+  scanner: trivy  # or 'grype'
+  # Scan images from these namespaces
+  namespaces: []  # Empty = same as kubernetes.namespaces
+
+# CVE checking
+cves:
+  # Which hosts to check for vulnerable packages
+  check_local: true
+  check_ssh_hosts: true
+
+# Caching (speeds up slow checks like WHOIS, CVE lookups)
+cache:
+  enabled: true
+  directory: "~/.cache/daily-hud"
+  # Cache duration in hours for each check type
+  durations:
+    domains: 24
+    cves: 12
+    container_vulns: 6
