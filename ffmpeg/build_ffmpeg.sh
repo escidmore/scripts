@@ -2,37 +2,26 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# ----------------------------
-# Config
-# ----------------------------
 export PREFIX="$HOME/ffmpeg_build"
 
 mkdir -p "$PREFIX"/{bin,lib,lib64,include,share,lib/pkgconfig}
 mkdir -p "$HOME/repo"
 
-# Zen 4 baseline for 7950X3D + 7945HX fleet
 export BASE_CFLAGS="-O3 -march=znver4 -mtune=znver4 -pipe -fno-plt"
 export BASE_CXXFLAGS="-O3 -march=znver4 -mtune=znver4 -pipe"
 
-# Static build flags
 export STATIC_CFLAGS="$BASE_CFLAGS"
 export STATIC_CXXFLAGS="$BASE_CXXFLAGS"
 
-# pkg-config should only look at our prefix (meson uses lib/x86_64-linux-gnu)
 export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig:$PREFIX/lib64/pkgconfig:$PREFIX/lib/x86_64-linux-gnu/pkgconfig"
 export PKG_CONFIG_LIBDIR="$PREFIX/lib/pkgconfig:$PREFIX/lib64/pkgconfig:$PREFIX/lib/x86_64-linux-gnu/pkgconfig"
 
-# Library paths for compile-time linking only
 export LIBRARY_PATH="$PREFIX/lib:$PREFIX/lib64"
-# DO NOT set LD_LIBRARY_PATH - let Nix tools use their rpath'd libraries
-# Setting it causes libstdc++ ABI mismatches with clang
+# DO NOT set LD_LIBRARY_PATH - Nix tools use rpath'd libraries and setting it
+# causes libstdc++ ABI mismatches with clang
 
-# Include path
 export CPATH="$PREFIX/include"
 
-# ----------------------------
-# Toolchain: LLVM everywhere
-# ----------------------------
 require_tool() {
   local n="$1"
   local p
@@ -64,25 +53,18 @@ export LDFLAGS="-fuse-ld=lld -L$PREFIX/lib -L$PREFIX/lib64"
 export CFLAGS="$BASE_CFLAGS -I$PREFIX/include"
 export CXXFLAGS="$BASE_CXXFLAGS -I$PREFIX/include"
 
-# Autotools needs to find libtool m4 macros
 NIX_ACLOCAL="$HOME/.nix-profile/share/aclocal"
 export ACLOCAL_PATH="$NIX_ACLOCAL${ACLOCAL_PATH:+:$ACLOCAL_PATH}"
 
-# Cache directory for tarballs
 CACHE_DIR="$HOME/.cache/ffmpeg_build"
 mkdir -p "$CACHE_DIR"
 
-# Track if any dependency was rebuilt
 REBUILD_FFMPEG=false
 
-# Force flags
 FORCE_FFMPEG="${FORCE_FFMPEG:-0}"
 FORCE_FFMPEG_CLEAN="${FORCE_FFMPEG_CLEAN:-0}"
 FORCE_ALL="${FORCE_ALL:-0}"
 
-# ----------------------------
-# Helpers
-# ----------------------------
 require_cmd() {
   for c in "$@"; do
     command -v "$c" >/dev/null 2>&1 || { echo "ERROR: missing command: $c" >&2; exit 1; }
@@ -146,22 +128,20 @@ download_if_changed() {
   fi
 }
 
-# Find GCC runtime library path (needed when using lld instead of Nix's ld wrapper)
-# Capture full output first to avoid SIGPIPE from early pipe termination
-# The clang command fails (linker error) but we still get the verbose output we need
+# lld bypasses Nix's ld wrapper, so we need to find GCC's runtime library path
+# manually. The clang -v command fails (linker error) but still outputs the
+# library search paths we need.
 _clang_verbose=$("$CLANGXX" -v /dev/null -o /dev/null 2>&1 || true)
 GCC_LIB_PATH=$(echo "$_clang_verbose" | grep -oP '(?<=-L)/nix/store/[^/]+-gcc-[^/]+-lib/lib' | head -1 || true)
 if [[ -z "$GCC_LIB_PATH" ]]; then
   echo "WARNING: Could not detect GCC lib path, C++ binaries may not run" >&2
   LLD_LINK_ARGS="'-fuse-ld=lld'"
 else
-  # Need both -L (for linking) and -rpath (for runtime) when using lld
+  # -L for link-time, -rpath for runtime (lld doesn't add rpath automatically)
   LLD_LINK_ARGS="'-fuse-ld=lld', '-L${GCC_LIB_PATH}', '-Wl,-rpath,${GCC_LIB_PATH}'"
-  # Update global LDFLAGS to include GCC lib path for autotools builds
   export LDFLAGS="$LDFLAGS -L$GCC_LIB_PATH -Wl,-rpath,$GCC_LIB_PATH"
 fi
 
-# Meson native file for LLVM toolchain
 MESON_NATIVE_FILE="$CACHE_DIR/clang-native.ini"
 cat > "$MESON_NATIVE_FILE" <<EOF
 [binaries]
@@ -179,7 +159,6 @@ c_link_args = [${LLD_LINK_ARGS}]
 cpp_link_args = [${LLD_LINK_ARGS}]
 EOF
 
-# CMake toolchain settings
 CMAKE_COMMON="-G Ninja \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -198,9 +177,6 @@ CMAKE_COMMON="-G Ninja \
 
 cd "$HOME/repo"
 
-# ==========================================
-# Build zlib (many deps need this)
-# ==========================================
 echo "=========================================="
 echo "Building zlib"
 echo "=========================================="
@@ -220,14 +196,11 @@ if git_update "https://github.com/madler/zlib.git" "zlib" 1; then
 
   ninja -j"$(nproc)"
   ninja install
-  # Remove shared libraries to ensure static linking
+  # zlib's cmake always builds shared libs; remove them to force static linking
   rm -f "$PREFIX"/lib*/libz.so*
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build libogg (vorbis needs this)
-# ==========================================
 echo "=========================================="
 echo "Building libogg"
 echo "=========================================="
@@ -252,9 +225,6 @@ if git_update "https://github.com/xiph/ogg.git" "ogg" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build libvorbis
-# ==========================================
 echo "=========================================="
 echo "Building libvorbis"
 echo "=========================================="
@@ -280,9 +250,6 @@ if git_update "https://github.com/xiph/vorbis.git" "vorbis" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build opus
-# ==========================================
 echo "=========================================="
 echo "Building opus"
 echo "=========================================="
@@ -308,9 +275,6 @@ if git_update "https://github.com/xiph/opus.git" "opus" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build lame (mp3)
-# ==========================================
 echo "=========================================="
 echo "Building lame"
 echo "=========================================="
@@ -336,9 +300,6 @@ if [[ ! -d "$HOME/repo/lame-3.100" ]]; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build fdk-aac
-# ==========================================
 echo "=========================================="
 echo "Building fdk-aac"
 echo "=========================================="
@@ -365,9 +326,6 @@ if git_update "https://github.com/mstorsjo/fdk-aac.git" "fdk-aac" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build libvpx
-# ==========================================
 echo "=========================================="
 echo "Building libvpx"
 echo "=========================================="
@@ -396,9 +354,6 @@ if git_update "https://chromium.googlesource.com/webm/libvpx.git" "libvpx" 1; th
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build numactl (x265 needs this)
-# ==========================================
 echo "=========================================="
 echo "Building numactl"
 echo "=========================================="
@@ -418,9 +373,6 @@ if git_update "https://github.com/numactl/numactl.git" "numactl" 0; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build x264
-# ==========================================
 echo "=========================================="
 echo "Building x264"
 echo "=========================================="
@@ -441,9 +393,6 @@ if git_update "https://code.videolan.org/videolan/x264.git" "x264" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build x265
-# ==========================================
 echo "=========================================="
 echo "Building x265"
 echo "=========================================="
@@ -452,13 +401,13 @@ if download_if_changed "https://bitbucket.org/multicoreware/x265_git/get/master.
   rm -rf "$HOME/repo"/multicoreware-x265_git-*
 fi
 
-# Use read to get first line - avoids SIGPIPE with pipefail
+# read avoids SIGPIPE that tar|head causes under pipefail
 read -r x265_first_entry < <(tar -tf "$CACHE_DIR/x265-master.tar.bz2")
 x265_dir="${x265_first_entry%%/*}"
 if [[ ! -f "$HOME/repo/$x265_dir/build-done" ]] || [[ "$FORCE_ALL" == "1" ]]; then
   rm -rf "$HOME/repo"/multicoreware-x265_git-*
   tar -xf "$CACHE_DIR/x265-master.tar.bz2" -C "$HOME/repo"
-  # Use glob expansion instead of ls|head to avoid SIGPIPE
+  # glob expansion avoids SIGPIPE from ls|head
   x265_dirs=("$HOME/repo"/multicoreware-x265_git-*)
   x265_dir="${x265_dirs[0]}"
 
@@ -483,22 +432,19 @@ if [[ ! -f "$HOME/repo/$x265_dir/build-done" ]] || [[ "$FORCE_ALL" == "1" ]]; th
   ninja -j"$(nproc)"
   ninja install
 
-  # Fix pkgconfig (replace -lgcc_s with -lgcc_eh for static linking)
+  # x265 links -lgcc_s which doesn't exist in static builds; use -lgcc_eh instead
   sed -i 's/-lgcc_s/-lgcc_eh/g' "$PREFIX/lib/pkgconfig/x265.pc" 2>/dev/null || true
 
   touch "$x265_dir/build-done"
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build SVT-AV1 (HDR fork)
-# ==========================================
 echo "=========================================="
-echo "Building svt-av1-hdr"
+echo "Building SVT-AV1-Essential"
 echo "=========================================="
 cd "$HOME/repo"
-if git_update "https://github.com/juliobbv-p/svt-av1-hdr.git" "svt-av1-hdr" 1; then
-  cd "$HOME/repo/svt-av1-hdr"
+if git_update "https://github.com/nekotrix/SVT-AV1-Essential" "SVT-AV1-Essential" 1; then
+  cd "$HOME/repo/SVT-AV1-Essential"
   rm -rf build && mkdir build && cd build
 
   cmake -G Ninja \
@@ -521,9 +467,6 @@ if git_update "https://github.com/juliobbv-p/svt-av1-hdr.git" "svt-av1-hdr" 1; t
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build dav1d
-# ==========================================
 echo "=========================================="
 echo "Building dav1d"
 echo "=========================================="
@@ -545,9 +488,6 @@ if git_update "https://code.videolan.org/videolan/dav1d.git" "dav1d" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build VMAF
-# ==========================================
 echo "=========================================="
 echo "Building VMAF"
 echo "=========================================="
@@ -569,9 +509,6 @@ if git_update "https://github.com/Netflix/vmaf.git" "vmaf" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build freetype
-# ==========================================
 echo "=========================================="
 echo "Building freetype"
 echo "=========================================="
@@ -596,9 +533,6 @@ if git_update "https://github.com/freetype/freetype.git" "freetype" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build expat (fontconfig needs this)
-# ==========================================
 echo "=========================================="
 echo "Building expat"
 echo "=========================================="
@@ -623,9 +557,6 @@ if git_update "https://github.com/libexpat/libexpat.git" "libexpat" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build fontconfig
-# ==========================================
 echo "=========================================="
 echo "Building fontconfig"
 echo "=========================================="
@@ -647,9 +578,6 @@ if git_update "https://gitlab.freedesktop.org/fontconfig/fontconfig.git" "fontco
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build fribidi
-# ==========================================
 echo "=========================================="
 echo "Building fribidi"
 echo "=========================================="
@@ -670,9 +598,6 @@ if git_update "https://github.com/fribidi/fribidi.git" "fribidi" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build harfbuzz
-# ==========================================
 echo "=========================================="
 echo "Building harfbuzz"
 echo "=========================================="
@@ -695,16 +620,13 @@ if git_update "https://github.com/harfbuzz/harfbuzz.git" "harfbuzz" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build libass
-# ==========================================
 echo "=========================================="
 echo "Building libass"
 echo "=========================================="
 cd "$HOME/repo"
 if git_update "https://github.com/libass/libass.git" "libass" 1; then
   cd "$HOME/repo/libass"
-  # Run libtoolize explicitly first, then copy ltmain.sh if it was put in wrong place
+  # libtoolize sometimes puts ltmain.sh in the wrong place on Nix
   libtoolize --copy --force
   [[ -f ltmain.sh ]] || cp -f "$(dirname "$(which libtoolize)")/../share/libtool/build-aux/ltmain.sh" . 2>/dev/null || true
   ./autogen.sh
@@ -723,9 +645,6 @@ if git_update "https://github.com/libass/libass.git" "libass" 1; then
   REBUILD_FFMPEG=true
 fi
 
-# ==========================================
-# Build FFmpeg
-# ==========================================
 echo "=========================================="
 echo "Building FFmpeg (static, LTO)"
 echo "=========================================="
@@ -750,7 +669,6 @@ if $REBUILD_FFMPEG || [[ ! -f "$PREFIX/bin/ffmpeg" ]]; then
     make distclean 2>/dev/null || true
   fi
 
-  # Configure for fully static build
   PKG_CONFIG_PATH="$PKG_CONFIG_PATH" \
   ./configure \
     --prefix="$PREFIX" \
