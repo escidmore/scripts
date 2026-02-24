@@ -61,7 +61,27 @@ export FAILED_LOG
 # ---------- HELPERS ----------
 get_bytes()    { stat -c %s -- "$1"; }
 get_duration() { ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$1" 2>/dev/null || echo 0; }
+bitrate_to_bps() {
+  local rate="${1:-}"
+  if [[ "$rate" =~ ^([0-9]+)([kKmM])?$ ]]; then
+    local value="${BASH_REMATCH[1]}"
+    local suffix="${BASH_REMATCH[2]:-}"
+    case "$suffix" in
+      k|K) echo $(( value * 1000 )) ;;
+      m|M) echo $(( value * 1000000 )) ;;
+      "")  echo "$value" ;;
+      *)   echo 0 ;;
+    esac
+  else
+    echo 0
+  fi
+}
 fmt_mb()       { awk "BEGIN{printf(\"%.1f\", $1/1048576)}"; }
+avg_bps_from_size_duration() {
+  local bytes="${1:-0}"
+  local duration="${2:-0}"
+  awk -v b="$bytes" -v d="$duration" 'BEGIN{if (d>0) printf "%.0f", (b*8)/d; else print 0}'
+}
 
 # Log a failure with a reason and return code
 fail() {
@@ -84,6 +104,8 @@ process_one() {
   awk -v d="$old_dur" 'BEGIN{exit !(d>0)}' || fail "no duration (unreadable source)" "$file" 10 || return $?
 
   old_bytes=$(get_bytes "$file") || fail "stat old bytes failed" "$file" 1 || return $?
+  target_bps="$(bitrate_to_bps "$AUDIO_BITRATE")"
+  src_avg_bps="$(avg_bps_from_size_duration "$old_bytes" "$old_dur")"
 
   # Default per-file channel config
   AUDIO_CHANNELS_THIS="$AUDIO_CHANNELS"
@@ -101,6 +123,28 @@ process_one() {
         AUDIO_CHANNELS_THIS=2
         echo "  → Forcing stereo due to publisher metadata: $pub"
       fi
+    fi
+  fi
+
+  # Skip if source average bitrate is already at/below target bitrate.
+  # This avoids re-encoding files that are unlikely to shrink.
+  if (( target_bps > 0 )) && [[ "$src_avg_bps" =~ ^[0-9]+$ ]] && (( src_avg_bps > 0 && src_avg_bps <= target_bps )); then
+    echo "Skipping (source average bitrate already <= target): $file"
+    return 0
+  fi
+
+  # Skip if source is already mono and lower bitrate than target mono bitrate
+  if [[ "$AUDIO_CHANNELS_THIS" -eq 1 ]]; then
+    src_channels="$(ffprobe -v error -select_streams a:0 -show_entries stream=channels -of default=nw=1:nk=1 "$file" 2>/dev/null || echo "")"
+    src_bps="$(ffprobe -v error -select_streams a:0 -show_entries stream=bit_rate -of default=nw=1:nk=1 "$file" 2>/dev/null || echo "")"
+
+    if [[ ! "$src_bps" =~ ^[0-9]+$ ]] || [[ "$src_bps" -le 0 ]]; then
+      src_bps="$(ffprobe -v error -show_entries format=bit_rate -of default=nw=1:nk=1 "$file" 2>/dev/null || echo "")"
+    fi
+
+    if [[ "$src_channels" =~ ^[0-9]+$ ]] && [[ "$src_bps" =~ ^[0-9]+$ ]] && (( target_bps > 0 )) && (( src_channels == 1 )) && (( src_bps > 0 && src_bps < target_bps )); then
+      echo "Skipping (already mono and lower bitrate than target): $file"
+      return 0
     fi
   fi
 
@@ -156,18 +200,18 @@ process_one() {
         set -x
         $NICE $IONICE ffmpeg -y -v error "${xerr_opts[@]}" -nostdin ${FF_FAST:-} -i "$file" \
           "${map_opts[@]}" \
-          -c:a libopus -ac "$AUDIO_CHANNELS" -b:a "$AUDIO_BITRATE" -vbr on -application audio -compression_level 10 \
+          -c:a libopus -ac "$AUDIO_CHANNELS_THIS" -b:a "$AUDIO_BITRATE" -vbr on -application audio -compression_level 10 \
           "${v_opts[@]}" \
           -movflags use_metadata_tags \
           "${extra[@]}" \
           -f mp4 "$tmp_out"
         rc=$?
         set +x
-      } >/dev/null 2>>/tmp/abs-recoder-cmds.log 2>>"$errlog"
+      } >/dev/null 2> >(tee -a /tmp/abs-recoder-cmds.log >> "$errlog")
     else
       $NICE $IONICE ffmpeg -y -v error "${xerr_opts[@]}" -nostdin ${FF_FAST:-} -i "$file" \
         "${map_opts[@]}" \
-        -c:a libopus -ac "$AUDIO_CHANNELS" -b:a "$AUDIO_BITRATE" -vbr on -application audio -compression_level 10 \
+        -c:a libopus -ac "$AUDIO_CHANNELS_THIS" -b:a "$AUDIO_BITRATE" -vbr on -application audio -compression_level 10 \
         "${v_opts[@]}" \
         -movflags use_metadata_tags \
         "${extra[@]}" \
@@ -272,7 +316,7 @@ process_one() {
     tail -n 60 "$errlog" || true
     if [[ "${DEBUG:-0}" -eq 1 ]]; then
       { printf 'RUN:'; printf ' %q' $NICE $IONICE ffmpeg -v error "${xerr_opts[@]}" -nostdin ${FF_FAST:-} -i "$file" \
-          "${map_opts[@]}" -c:a libopus -ac "$AUDIO_CHANNELS" -b:a "$AUDIO_BITRATE" \
+          "${map_opts[@]}" -c:a libopus -ac "$AUDIO_CHANNELS_THIS" -b:a "$AUDIO_BITRATE" \
           -vbr on -application audio -compression_level 10 "${v_opts[@]}" \
           -movflags use_metadata_tags -f mp4 "$tmp_out"; printf '\n'; } >> /tmp/abs-recoder-cmds.log
     fi
@@ -281,7 +325,7 @@ process_one() {
   fi
 }
 
-export -f process_one fmt_mb get_duration get_bytes fail
+export -f process_one fmt_mb get_duration get_bytes bitrate_to_bps avg_bps_from_size_duration fail
 
 # ---------- RUN ----------
 find "$SRC_ROOT" -type f -regextype posix-extended -iregex "$TARGET_GLOB" -print0 | \
