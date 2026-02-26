@@ -36,9 +36,9 @@ fix_site_perms() {
 ############################ php-fpm auto-detect #############################
 detect_php_fpm() {
   local bins=()
-  IFS=$'\n' read -r -d '' -a bins < <(command -v -a php-fpm* 2>/dev/null | sort -u && printf '\0' || true)
+  for b in /usr/sbin/php-fpm* /usr/bin/php-fpm*; do [[ -x "$b" ]] && bins+=("$b"); done
   if (( ${#bins[@]} == 0 )); then
-    for b in /usr/sbin/php-fpm* /usr/bin/php-fpm*; do [[ -x "$b" ]] && bins+=("$b"); done
+    while IFS= read -r b; do [[ -x "$b" ]] && bins+=("$b"); done < <(type -a php-fpm 2>/dev/null | awk '{print $NF}' | sort -u)
   fi
   (( ${#bins[@]} == 0 )) && err "No php-fpm binary found"
 
@@ -59,7 +59,7 @@ detect_php_fpm() {
   elif systemctl list-unit-files | grep -q "^php-fpm\.service"; then
     PHP_FPM_SERVICE="php-fpm"
   else
-    PHP_FPM_SERVICE="$(systemctl list-unit-files | awk -F. '/^php[0-9]+\.[0-9]+-fpm\.service$/ {print $1}' | sort -V | tail -n1)"
+    PHP_FPM_SERVICE="$(systemctl list-unit-files | awk -F. '/^php[0-9]+\.[0-9]+-fpm\.service$/ {print $1"."$2}' | sort -V | tail -n1)"
     [[ -z "$PHP_FPM_SERVICE" ]] && PHP_FPM_SERVICE="php8.2-fpm"
   fi
 }
@@ -186,7 +186,7 @@ sync_overlay_extensions_for_site() {
         warn "$ext: no $rel/main/master branch found; skipping checkout"
       fi
       if ! sudo -u "$WWW_USER" git -C "$path" pull --ff-only; then
-        warn "sudo -u "$WWW_USER" git pull failed for $ext ($site)"
+        warn "sudo -u $WWW_USER git pull failed for $ext ($site)"
       fi
     else
       warn "$ext in $site is not a git repo; skipping"
@@ -202,7 +202,7 @@ sync_overlay_extensions_for_site() {
 
 # Sync overlays for all detected sites
 shopt -s nullglob
-all_sites=( "$(basename -a "$SITES_DIR"/* 2>/dev/null || true)" )
+mapfile -t all_sites < <(for d in "$SITES_DIR"/*/; do [[ -d "$d" ]] && basename "$d"; done)
 for site in "${all_sites[@]}"; do
   if [[ -f "$SITES_DIR/$site/LocalSettings.php" ]]; then
     sync_overlay_extensions_for_site "$site" "$REL_BRANCH"
