@@ -1,0 +1,31 @@
+[project]
+name = "hardcover-tagger"
+version = "0.1.0"
+description = "Add a book to multiple Hardcover lists in one command"
+requires-python = ">=3.13"
+dependencies = [
+    "httpx==0.28.1",
+]
+
+[project.scripts]
+hardcover-tagger = "hardcover_tagger.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0",
+    "pytest-mock>=3.14",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hardcover_tagger"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "PTH", "RUF"]

@@ -142,23 +142,26 @@ jq '
     "ignore-duplicates": true
   }' "$NEW_CORE/composer.json" > "$NEW_CORE/composer.json.tmp"
 mv "$NEW_CORE/composer.json.tmp" "$NEW_CORE/composer.json"
-chown "$WWW_USER:$WWW_GROUP" "$NEW_CORE/composer.json"
-
 ############################ switch symlink & composer #######################
 info "Linking $SYMLINK -> $NEW_CORE"
 ln -sfn "$NEW_CORE" "$SYMLINK"
 cd "$SYMLINK"
 info "composer install (no-dev) in $SYMLINK"
-if ! sudo -u "$WWW_USER" composer install --no-dev --no-progress --prefer-dist --no-interaction; then
+# Remove composer.lock if it's empty (e.g. from a previous failed run); composer regenerates it.
+[[ -f "$NEW_CORE/composer.lock" && ! -s "$NEW_CORE/composer.lock" ]] && rm -f "$NEW_CORE/composer.lock"
+if ! composer install --no-dev --no-progress --prefer-dist --no-interaction; then
   err "composer install failed in $SYMLINK"
 fi
-if ! sudo -u "$WWW_USER" composer dump-autoload -o; then
+if ! composer dump-autoload -o; then
   warn "composer dump-autoload reported issues"
 fi
 # Optional check
-if ! sudo -u "$WWW_USER" composer validate; then
+if ! composer validate; then
   warn "composer.json warnings (expected with pinned versions)"
 fi
+# Fix ownership of everything composer wrote
+chown "$WWW_USER:$WWW_GROUP" "$NEW_CORE/composer.json" "$NEW_CORE/composer.lock"
+[[ -d "$NEW_CORE/vendor" ]] && chown -R "$WWW_USER:$WWW_GROUP" "$NEW_CORE/vendor"
 
 ############################ overlay extension sync #########################
 sync_overlay_extensions_for_site() {
@@ -212,8 +215,10 @@ done
 shopt -u nullglob
 
 ############################ reload services ################################
-systemctl reload "$PHP_FPM_SERVICE" || warn "Failed to reload $PHP_FPM_SERVICE"
-systemctl reload "$WEB_SERVER"      || warn "Failed to reload $WEB_SERVER"
+# Restart (not reload) PHP-FPM to clear OPcache; a reload rotates workers
+# gracefully but stale bytecode can persist during the transition window.
+systemctl restart "$PHP_FPM_SERVICE" || warn "Failed to restart $PHP_FPM_SERVICE"
+systemctl reload  "$WEB_SERVER"      || warn "Failed to reload $WEB_SERVER"
 
 ############################ optional DB updates ############################
 echo
