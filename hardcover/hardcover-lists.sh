@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-OUTPUT_FILE="~/repo/book-lists/hardcover-lists.txt"
+OUTPUT_FILE="/home/eve/repo/book-lists/hardcover-lists.txt"
 API_URL="https://api.hardcover.app/v1/graphql"
 USER_ID=22672
 PAGE_SIZE=100
