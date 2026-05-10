@@ -1,52 +1,91 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
-PREFIX="$HOME/ffmpeg_build"
-NIX_PROFILE="$HOME/.nix-profile"
-mkdir -p "$PREFIX"/{bin,lib,lib64,include,share}
+PREFIX="${PREFIX:-$HOME/ffmpeg_build}"
 
-export CFLAGS="-O3 -march=native -mtune=native -pipe -fno-plt"
-export CXXFLAGS="-O3 -march=native -mtune=native -pipe"
+mkdir -p "$PREFIX"/{bin,lib,lib64,include,share,lib/pkgconfig,lib64/pkgconfig}
 
-export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig:$PREFIX/lib64/pkgconfig:$PREFIX/lib/x86_64-linux-gnu/pkgconfig:$HOME/.nix-profile/lib/pkgconfig:$HOME/.nix-profile/share/pkgconfig"
-export CPATH="$PREFIX/include:$NIX_PROFILE/include"
-export LIBRARY_PATH="$PREFIX/lib:$PREFIX/lib64:$NIX_PROFILE/lib"
-export NIX_CC_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu=1
-export NIX_CFLAGS_COMPILE="-idirafter $NIX_PROFILE/include"
-export NIX_LDFLAGS="-L$NIX_PROFILE/lib -rpath $NIX_PROFILE/lib"
+if [[ -z "${IN_NIX_SHELL:-}" ]]; then
+	echo "ERROR: enter the project dev shell first with: nix develop" >&2
+	exit 1
+fi
 
-cd ~/repo
-# rm -rf ffmpeg ffmpeg-snapshot.tar.bz2
-# wget -O ffmpeg-snapshot.tar.bz2 https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
-# tar xjf ffmpeg-snapshot.tar.bz2
-cd ffmpeg
+require_tool() {
+	local name="$1"
+	local path
+	path="$(command -v "$name" 2>/dev/null || true)"
+	if [[ -z "$path" ]]; then
+		echo "ERROR: missing required tool: $name" >&2
+		exit 1
+	fi
+	echo "$path"
+}
+
+CLANG="$(require_tool clang)"
+CLANGXX="$(require_tool clang++)"
+LLVM_AR="$(require_tool llvm-ar)"
+LLVM_RANLIB="$(require_tool llvm-ranlib)"
+LLVM_NM="$(require_tool llvm-nm)"
+LLVM_STRIP="$(require_tool llvm-strip)"
+PKG_CONFIG_BIN="$(require_tool pkg-config)"
+
+default_pkg_config_path="$PREFIX/lib/pkgconfig:$PREFIX/lib64/pkgconfig:$PREFIX/lib/x86_64-linux-gnu/pkgconfig"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:-$default_pkg_config_path}"
+
+_clang_verbose="$("$CLANGXX" -v /dev/null -o /dev/null 2>&1 || true)"
+GCC_LIB_PATH=$(printf '%s\n' "$_clang_verbose" | grep -oP '(?<=-L)/nix/store/[^/]+-gcc-[^/]+-lib/lib' | head -1 || true)
+
+extra_ldflags="-L$PREFIX/lib -L$PREFIX/lib64"
+if [[ -n "$GCC_LIB_PATH" ]]; then
+	extra_ldflags="$extra_ldflags -L$GCC_LIB_PATH -fuse-ld=lld -Wl,-rpath,$GCC_LIB_PATH"
+else
+	extra_ldflags="$extra_ldflags -fuse-ld=lld"
+fi
+
+cd "$HOME/repo/ffmpeg"
 
 ./configure \
-    --prefix="$PREFIX" \
-    --bindir="$PREFIX/bin" \
-    --extra-cflags="-O3 -march=native -mtune=native -I$PREFIX/include -I$NIX_PROFILE/include" \
-    --extra-ldflags="-L$PREFIX/lib -L$PREFIX/lib64 -L$PREFIX/lib/x86_64-linux-gnu -L$NIX_PROFILE/lib" \
-    --extra-libs="-lpthread -lm -lz -ldl" \
-    --ld="g++" \
-    --enable-gpl \
-    --enable-nonfree \
-    --enable-libfdk-aac \
-    --enable-libfreetype \
-    --enable-libfontconfig \
-    --enable-libmp3lame \
-    --enable-libopus \
-    --enable-libvorbis \
-    --enable-libvpx \
-    --enable-libx264 \
-    --enable-libx265 \
-    --enable-libsvtav1 \
-    --enable-libvmaf \
-    --enable-libass \
-    --enable-libfribidi \
-    --enable-libharfbuzz \
-    --enable-runtime-cpudetect \
-    --disable-debug \
-    --disable-doc
+	--prefix="$PREFIX" \
+	--bindir="$PREFIX/bin" \
+	--cc="$CLANG" \
+	--cxx="$CLANGXX" \
+	--ld="$CLANG" \
+	--ar="$LLVM_AR" \
+	--ranlib="$LLVM_RANLIB" \
+	--nm="$LLVM_NM" \
+	--strip="$LLVM_STRIP" \
+	--pkg-config="$PKG_CONFIG_BIN" \
+	--pkg-config-flags="--static" \
+	--extra-cflags="-I$PREFIX/include -I$PREFIX/include/freetype2" \
+	--extra-ldflags="$extra_ldflags" \
+	--extra-libs="-lpthread -lm -ldl -lstdc++" \
+	--enable-static \
+	--disable-shared \
+	--enable-pic \
+	--enable-lto \
+	--enable-gpl \
+	--enable-nonfree \
+	--disable-bzlib \
+	--disable-lzma \
+	--enable-libfdk-aac \
+	--enable-libfreetype \
+	--enable-libfontconfig \
+	--enable-libmp3lame \
+	--enable-libopus \
+	--enable-libvorbis \
+	--enable-libvpx \
+	--enable-libx264 \
+	--enable-libx265 \
+	--enable-libsvtav1 \
+	--enable-libdav1d \
+	--enable-libvmaf \
+	--enable-libass \
+	--enable-libfribidi \
+	--enable-libharfbuzz \
+	--enable-libzimg \
+	--enable-runtime-cpudetect \
+	--disable-debug \
+	--disable-doc
 
-make -j$(nproc)
-make
+make -j"$(nproc)"
+make install
