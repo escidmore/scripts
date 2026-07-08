@@ -22,7 +22,7 @@ export LIBRARY_PATH="${LIBRARY_PATH:-$PREFIX/lib:$PREFIX/lib64}"
 
 export CPATH="${CPATH:-$PREFIX/include}"
 
-if [[ ! -n "${IN_NIX_SHELL:-}" ]]; then
+if [[ -z "${IN_NIX_SHELL:-}" ]]; then
 	echo "ERROR: enter the project dev shell first with: nix develop" >&2
 	exit 1
 fi
@@ -171,22 +171,6 @@ c_link_args = [${LLD_LINK_ARGS}]
 cpp_link_args = [${LLD_LINK_ARGS}]
 EOF
 
-CMAKE_COMMON="-G Ninja \
-  -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_INSTALL_PREFIX=$PREFIX \
-  -DCMAKE_PREFIX_PATH=$PREFIX \
-  -DCMAKE_C_COMPILER=$CLANG \
-  -DCMAKE_CXX_COMPILER=$CLANGXX \
-  -DCMAKE_AR=$LLVM_AR \
-  -DCMAKE_RANLIB=$LLVM_RANLIB \
-  -DCMAKE_NM=$LLVM_NM \
-  -DCMAKE_STRIP=$LLVM_STRIP \
-  -DCMAKE_C_FLAGS=\"$STATIC_CFLAGS\" \
-  -DCMAKE_CXX_FLAGS=\"$STATIC_CXXFLAGS\" \
-  -DCMAKE_EXE_LINKER_FLAGS=\"-fuse-ld=lld\" \
-  -DCMAKE_SHARED_LINKER_FLAGS=\"-fuse-ld=lld\" \
-  -DBUILD_SHARED_LIBS=OFF"
-
 cd "$HOME/repo"
 
 echo "=========================================="
@@ -263,13 +247,13 @@ if git_update "https://github.com/xiph/vorbis.git" "vorbis" 1; then
 		if [[ -f "$pc_dir/vorbis.pc" ]]; then
 			# FFmpeg probes vorbis with non-static pkg-config flags, but our static
 			# libvorbis.a still needs libogg. Promote the dependency so configure links.
-			sed -i 's/^Libs: -L${libdir} -lvorbis[[:space:]]*$/Libs: -L${libdir} -lvorbis -logg/' \
+			sed -i "s/^Libs: -L\${libdir} -lvorbis[[:space:]]*$/Libs: -L\${libdir} -lvorbis -logg/" \
 				"$pc_dir/vorbis.pc"
 		fi
 		if [[ -f "$pc_dir/vorbisenc.pc" ]]; then
 			# The static encoder archive also depends on libvorbis, but upstream keeps
 			# that in Requires.private which FFmpeg's configure probe does not use.
-			sed -i 's/^Libs: -L${libdir} -lvorbisenc[[:space:]]*$/Libs: -L${libdir} -lvorbisenc -lvorbis -logg/' \
+			sed -i "s/^Libs: -L\${libdir} -lvorbisenc[[:space:]]*$/Libs: -L\${libdir} -lvorbisenc -lvorbis -logg/" \
 				"$pc_dir/vorbisenc.pc"
 		fi
 	done
@@ -595,6 +579,19 @@ if git_update "https://github.com/google/brotli.git" "brotli" 1; then
 	REBUILD_FFMPEG=true
 fi
 
+for pc_dir in "$PREFIX/lib/pkgconfig" "$PREFIX/lib64/pkgconfig"; do
+	if [[ -f "$pc_dir/libbrotlidec.pc" ]]; then
+		# Consumers such as HarfBuzz link static Freetype without pkg-config --static.
+		# libbrotlidec.a still needs libbrotlicommon.a, so promote the dependency.
+		sed -i "s/^Libs: -L\${libdir} -lbrotlidec[[:space:]]*$/Libs: -L\${libdir} -lbrotlidec -lbrotlicommon -lm/" \
+			"$pc_dir/libbrotlidec.pc"
+	fi
+	if [[ -f "$pc_dir/libbrotlienc.pc" ]]; then
+		sed -i "s/^Libs: -L\${libdir} -lbrotlienc[[:space:]]*$/Libs: -L\${libdir} -lbrotlienc -lbrotlicommon -lm/" \
+			"$pc_dir/libbrotlienc.pc"
+	fi
+done
+
 echo "=========================================="
 echo "Building freetype"
 echo "=========================================="
@@ -621,7 +618,7 @@ if git_update "https://github.com/freetype/freetype.git" "freetype" 1; then
 	# Upstream freetype enables Brotli support in the static archive but does not
 	# reliably propagate the dependency in freetype2.pc for downstream static links.
 	if [[ -f "$PREFIX/lib/pkgconfig/freetype2.pc" ]]; then
-		sed -i 's/^Requires: zlib$/Requires: zlib libbrotlidec/' "$PREFIX/lib/pkgconfig/freetype2.pc"
+		sed -i 's/^Requires: zlib$/Requires: zlib, libbrotlidec/' "$PREFIX/lib/pkgconfig/freetype2.pc"
 	fi
 	REBUILD_FFMPEG=true
 fi
@@ -695,7 +692,11 @@ echo "=========================================="
 echo "Building harfbuzz"
 echo "=========================================="
 cd "$HOME/repo"
-if git_update "https://github.com/harfbuzz/harfbuzz.git" "harfbuzz" 1; then
+git_update "https://github.com/harfbuzz/harfbuzz.git" "harfbuzz" 1 && _harfbuzz_changed=true || _harfbuzz_changed=false
+if $_harfbuzz_changed ||
+	[[ ! -f "$PREFIX/lib/pkgconfig/harfbuzz.pc" &&
+		! -f "$PREFIX/lib64/pkgconfig/harfbuzz.pc" &&
+		! -f "$PREFIX/lib/x86_64-linux-gnu/pkgconfig/harfbuzz.pc" ]]; then
 	cd "$HOME/repo/harfbuzz"
 	rm -rf build
 
@@ -743,7 +744,11 @@ echo "Building FFmpeg (static, LTO)"
 echo "=========================================="
 cd "$HOME/repo"
 
-if download_if_changed "https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2" "ffmpeg-snapshot.tar.bz2"; then
+_ffmpeg_downloaded=false
+download_if_changed "https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2" "ffmpeg-snapshot.tar.bz2" &&
+	_ffmpeg_downloaded=true
+
+if $_ffmpeg_downloaded || [[ ! -d "$HOME/repo/ffmpeg" ]]; then
 	rm -rf "$HOME/repo/ffmpeg"
 	tar -xf "$CACHE_DIR/ffmpeg-snapshot.tar.bz2" -C "$HOME/repo"
 	REBUILD_FFMPEG=true
@@ -756,6 +761,15 @@ fi
 
 if $REBUILD_FFMPEG || [[ ! -f "$PREFIX/bin/ffmpeg" ]]; then
 	cd "$HOME/repo/ffmpeg"
+	if grep -q 'param->enable_adaptive_quantization = 0;' libavcodec/libsvtav1.c; then
+		# SVT-AV1-Essential 4.x renamed this configuration field to aq_mode.
+		sed -i '/param->enable_adaptive_quantization = 0;/c\
+#if SVT_AV1_CHECK_VERSION(4, 0, 0)\
+        param->aq_mode = 0;\
+#else\
+        param->enable_adaptive_quantization = 0;\
+#endif' libavcodec/libsvtav1.c
+	fi
 
 	if [[ "$FORCE_FFMPEG_CLEAN" == "1" ]]; then
 		echo "FORCE_FFMPEG_CLEAN=1: cleaning FFmpeg"

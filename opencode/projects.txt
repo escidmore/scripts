@@ -1,0 +1,11 @@
+# Project paths to sync with sync-project-plugins.py.
+# Relative entries are resolved from --repo-root, which defaults to ~/repo.
+clustertool
+abtts
+hermes-deploy
+homelab
+odoo-mcp
+synadia-agents-security
+home-manager
+scripts/hct-ui
+colophon

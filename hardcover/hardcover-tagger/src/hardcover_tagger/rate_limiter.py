@@ -1,28 +1,23 @@
-"""Token bucket rate limiter for Hardcover API (60 req/min)."""
+"""Paced rate limiter for Hardcover API requests."""
 
 import time
 
 
 class RateLimiter:
-    """Token bucket: burst up to `capacity`, then refill at `refill_rate` tokens/sec."""
+    """Pace requests evenly to avoid strict rolling-window rate limits."""
 
-    def __init__(self, capacity: int = 30, refill_rate: float = 1.0) -> None:
-        self._capacity = capacity
-        self._refill_rate = refill_rate
-        self._tokens = float(capacity)
-        self._last_refill = time.monotonic()
+    def __init__(self, requests_per_minute: int = 50) -> None:
+        if requests_per_minute <= 0:
+            msg = "requests_per_minute must be positive"
+            raise ValueError(msg)
+        self._interval = 60.0 / requests_per_minute
+        self._next_request = time.monotonic()
 
     def acquire(self) -> None:
-        """Block until a token is available, then consume it."""
-        self._refill()
-        while self._tokens < 1.0:
-            deficit = 1.0 - self._tokens
-            time.sleep(deficit / self._refill_rate)
-            self._refill()
-        self._tokens -= 1.0
-
-    def _refill(self) -> None:
+        """Block until the next request slot is available."""
         now = time.monotonic()
-        elapsed = now - self._last_refill
-        self._tokens = min(self._capacity, self._tokens + elapsed * self._refill_rate)
-        self._last_refill = now
+        if now < self._next_request:
+            time.sleep(self._next_request - now)
+            now = time.monotonic()
+
+        self._next_request = max(now, self._next_request) + self._interval

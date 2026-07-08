@@ -14,10 +14,9 @@ from hardcover_tagger.inventory import update_inventory
 from hardcover_tagger.operations import (
     Book,
     ListResult,
-    fetch_all_lists,
     process_lists,
-    resolve_book,
-    resolve_user_id,
+    resolve_lists_by_name,
+    resolve_tagging_setup,
     retry_failed,
 )
 from hardcover_tagger.rate_limiter import RateLimiter
@@ -130,37 +129,22 @@ def run(args: argparse.Namespace) -> int:
     rate_limiter = RateLimiter()
     client = GraphQLClient(api_key=api_key, rate_limiter=rate_limiter)
 
-    # Resolve user ID
-    log("Resolving user ID...", quiet=quiet)
+    # Resolve book and all requested lists that already exist in one API request.
+    log("Resolving book and requested lists...", quiet=quiet)
     try:
-        user_id = resolve_user_id(client)
+        setup = resolve_tagging_setup(client, args.slug, args.existing + args.new)
     except GraphQLError as exc:
-        print(f"Error resolving user: {exc}", file=sys.stderr)
+        print(f"Error resolving book/lists: {exc}", file=sys.stderr)
         return 1
 
-    # Resolve book
-    log(f"Resolving book: {args.slug}...", quiet=quiet)
-    try:
-        book = resolve_book(client, args.slug)
-    except GraphQLError as exc:
-        print(f"Error resolving book: {exc}", file=sys.stderr)
-        return 1
-
+    book = setup.book
     if book is None:
         print(f"Error: no book found for slug '{args.slug}'", file=sys.stderr)
         return 1
 
     log(f"Found: {book.title} (id={book.id})", quiet=quiet)
-
-    # Fetch all user lists
-    log("Fetching user lists...", quiet=quiet)
-    try:
-        user_lists = fetch_all_lists(client, user_id)
-    except GraphQLError as exc:
-        print(f"Error fetching lists: {exc}", file=sys.stderr)
-        return 1
-
-    log(f"Found {len(user_lists)} existing lists", quiet=quiet)
+    user_lists = setup.user_lists
+    log(f"Matched {len(user_lists)} requested list(s)", quiet=quiet)
 
     # Process all lists
     if args.dry_run:
@@ -179,10 +163,11 @@ def run(args: argparse.Namespace) -> int:
     failed = [r for r in results if not r.success]
     if failed and not args.dry_run:
         log(f"Retrying {len(failed)} failed operation(s)...", quiet=quiet)
-        # Re-fetch lists in case new ones were created
+        retry_names = [result.name for result in failed]
+        retry_lists = user_lists
         with contextlib.suppress(GraphQLError):
-            user_lists = fetch_all_lists(client, user_id)
-        retried = retry_failed(client, book, failed, user_lists)
+            retry_lists = resolve_lists_by_name(client, retry_names)
+        retried = retry_failed(client, book, failed, retry_lists)
         # Replace failed results with retry results
         succeeded_names = {r.name for r in results if r.success}
         results = [r for r in results if r.success] + [

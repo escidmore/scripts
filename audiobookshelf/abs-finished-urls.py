@@ -19,10 +19,12 @@ from pathlib import Path
 from typing import Any
 
 
-DEFAULT_FIRECRAWL_API_URL = "http://10.2.100.31:3002/v1"
+DEFAULT_FIRECRAWL_API_URL = "https://firecrawl.samesies.gay/v1"
 DEFAULT_ABS_BASE_URL = "https://abs.samesies.gay"
 DEFAULT_ABS_LIBRARY_ID = "98216a96-0651-43e3-b6a5-44e192b53e03"
 HARDCOVER_API_URL = "https://api.hardcover.app/v1/graphql"
+SUPPORTED_SITES = {"amazon", "goodreads", "hardcover", "storygraph"}
+NETWORK_SITES = {"goodreads", "hardcover", "storygraph"}
 STORYGRAPH_BOOK_RE = re.compile(
     r"https://app\.thestorygraph\.com/books/[0-9a-fA-F-]+"
 )
@@ -227,7 +229,7 @@ def main() -> int:
         use_firecrawl_search=args.use_firecrawl_search,
         quiet=args.quiet,
     )
-    unknown_sites = config.sites - {"storygraph", "hardcover", "goodreads"}
+    unknown_sites = config.sites - SUPPORTED_SITES
     if unknown_sites:
         print(f"unknown site(s): {', '.join(sorted(unknown_sites))}", file=sys.stderr)
         return 2
@@ -237,6 +239,8 @@ def main() -> int:
         books = load_books(args, clients)
         if args.limit:
             books = books[: args.limit]
+        # Audiobookshelf fetches newest-first so the cutoff regex can stop early.
+        books = list(reversed(books))
         cache = JsonCache(args.cache, not args.no_cache)
         rows = lookup_books(books, clients, cache, config)
         cache.save()
@@ -255,7 +259,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Fetch finished Audiobookshelf books and find StoryGraph, "
-            "Hardcover, and Goodreads URLs."
+            "Hardcover, Goodreads, and Amazon URLs."
         )
     )
     parser.add_argument("since", help="stop before the first finished title matching this regex")
@@ -266,8 +270,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--sites",
-        default="storygraph,hardcover,goodreads",
-        help="comma-separated sites to query: storygraph,hardcover,goodreads",
+        default="storygraph,hardcover,goodreads,amazon",
+        help="comma-separated sites to query: storygraph,hardcover,goodreads,amazon",
     )
     parser.add_argument("--limit", type=int, help="limit rows for testing")
     parser.add_argument("--json", action="store_true", help="emit structured JSON")
@@ -470,6 +474,10 @@ def lookup_site(
     cache: JsonCache,
     config: LookupConfig,
 ) -> SiteResult:
+    if site not in NETWORK_SITES:
+        result = uncached_lookup_site(site, book, clients, config)
+        log(config, site_result_message(site, result))
+        return result
     cached = cache.get(site, book)
     if cached:
         log(config, site_result_message(site, cached))
@@ -496,6 +504,8 @@ def uncached_lookup_site(
         return lookup_hardcover(book, clients)
     if site == "goodreads":
         return lookup_goodreads(book, clients, config)
+    if site == "amazon":
+        return lookup_amazon(book)
     raise LookupErrorWithDetail(f"unsupported site: {site}")
 
 
@@ -505,6 +515,20 @@ def site_result_message(site: str, result: SiteResult) -> str:
     if result.error:
         return f"  {site}: {result.error}"
     return f"  {site}: not found"
+
+
+def lookup_amazon(book: Book) -> SiteResult:
+    return SiteResult(
+        amazon_search_url(book),
+        "search",
+        "Amazon Audible search from title and author",
+    )
+
+
+def amazon_search_url(book: Book) -> str:
+    query = f"{book.title} {first_author(book.author)} Audible Audiobook"
+    params = urllib.parse.urlencode({"i": "audible", "k": query})
+    return f"https://www.amazon.com/s?{params}"
 
 
 def lookup_storygraph(book: Book, clients: ApiClients, config: LookupConfig) -> SiteResult:
@@ -1001,7 +1025,9 @@ def row_from_results(book: Book, site_results: dict[str, SiteResult]) -> dict[st
 
 
 def print_tsv(rows: list[dict[str, Any]], sites: set[str]) -> None:
-    ordered_sites = [site for site in ["storygraph", "hardcover", "goodreads"] if site in sites]
+    ordered_sites = [
+        site for site in ["storygraph", "hardcover", "goodreads", "amazon"] if site in sites
+    ]
     headers = ["title", "author", "isbn", "asin", "started_at", "finished_at", *ordered_sites]
     print("\t".join(headers))
     for row in rows:

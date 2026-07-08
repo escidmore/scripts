@@ -45,18 +45,21 @@ hardcover-tagger <slug> --existing "Some List" --json --quiet
 
 ## Behavior
 
-- Resolves the authenticated user from the API token (no hardcoded user ID)
-- Resolves the book by slug and confirms its identity
-- Batch-fetches all user lists in one paginated call, then matches `--existing` names locally
-- Creates new lists sequentially (Hardcover has a position conflict on concurrent mutations)
-- Adds the book to each list sequentially
+- Resolves the book and requested lists that already exist in one setup query
+- Reuses `--new` lists that already exist, which makes partial failed runs safe to retry
+- Creates new lists in aliased GraphQL mutation batches
+- Adds the book to lists in aliased GraphQL mutation batches
+- Skips list-book rows that already exist for the target book
 - Retries failed operations once before reporting
 - Updates `hardcover-lists.txt` with any new list names (atomic write, sorted, deduplicated)
 - Exit code 0 if all lists succeeded, 1 if any failed
 
 ## Rate Limiting
 
-Token bucket: bursts up to 30 requests, then refills at 1 req/sec to stay under Hardcover's 60 req/min ceiling. The rate limiter is shared across all operations including retries.
+Requests are paced at 50/minute with no burst to stay under Hardcover's 60/minute
+rolling-window ceiling. The GraphQL client also retries one 429 or transient 5xx
+response after waiting. Normal large tagging runs use only a handful of HTTP requests
+because list creation and book additions are batched as GraphQL aliases.
 
 ## Related
 
