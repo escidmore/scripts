@@ -1,0 +1,7 @@
+{
+  "excluded_authors": ["Alyson Belle", "Steven Jay Howe Jr."],
+  "not_actually_read": ["Clean Sweep (Dramatized Adaptation)"],
+  "retrospective_read_authors": ["Deborah Harkness", "Jim Butcher", "Matthew Stover", "Matthew Woodring Stover", "Glen Cook", "China Mieville", "China Miéville", "Charles Stross"],
+  "accurate_date_exceptions": ["The Black Bird Oracle", "Lies Weeping", "The Regicide Report", "Regicide Report"],
+  "instructions": "Exclude the named authors from this catch-up. Clean Sweep was only actually read in its standard recording; the dramatized version was marked read to suppress an unread-series reminder. For retrospective reads, mark Read but do not use ABS start or finish dates as actual reading dates. Preserve existing genuine Hardcover dates. Exceptions retain their accurate reading dates. Other ABS dates remain source data, not newly confirmed by this correction."
+}

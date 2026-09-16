@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(FORCE_FFMPEG=1 FORCE_FFMPEG_CLEAN=1 ./build_ffmpeg.sh:*)",
+      "Bash(~/.nix-profile/bin/clang:*)",
+      "Bash(/home/eve/.nix-profile/bin/clang:*)",
+      "Bash(NIX_CPATH=/home/eve/.nix-profile/include /home/eve/.nix-profile/bin/clang:*)",
+      "Bash(NIX_CPATH=/home/eve/.nix-profile/include CPATH=/home/eve/ffmpeg_build/include:/home/eve/.nix-profile/include /home/eve/.nix-profile/bin/clang:*)",
+      "Bash(CPATH=/home/eve/.nix-profile/include /home/eve/.nix-profile/bin/clang:*)",
+      "Bash(CPATH=/home/eve/ffmpeg_build/include:/home/eve/.nix-profile/include NIX_CPATH=/home/eve/.nix-profile/include bash:*)",
+      "Bash(NIX_DEBUG=7 /home/eve/.nix-profile/bin/clang:*)",
+      "Bash(/home/eve/.nix-profile/bin/ninja:*)",
+      "Bash(g++:*)",
+      "Bash(pkg-config:*)",
+      "Bash(PKG_CONFIG_PATH=\"/home/eve/ffmpeg_build/lib/pkgconfig:/home/eve/ffmpeg_build/lib64/pkgconfig:/home/eve/ffmpeg_build/lib/x86_64-linux-gnu/pkgconfig:/home/eve/.nix-profile/lib/pkgconfig:/home/eve/.nix-profile/share/pkgconfig\" pkg-config:*)",
+      "Bash(ldd:*)",
+      "Bash(readelf:*)",
+      "Bash(./build_ffmpeg.sh:*)",
+      "Bash(x265_dir=\"multicoreware-x265_git-9e551a994f97\")",
+      "Bash([[ ! -d \"$HOME/repo/$x265_dir/build-done\" ]])",
+      "Bash(stdbuf -oL ./build_ffmpeg.sh:*)",
+      "Bash(FORCE_FFMPEG=1 FORCE_FFMPEG_CLEAN=1 bash:*)",
+      "Bash(# Let''s find gcc-lib in the profile ls -la ~/.nix-profile/lib/libstdc++* || echo \"\"Not in profile lib\"\" # Check what gcc runtime is available readlink -f /nix/var/nix/profiles/per-user/eve/profile/lib/libstdc++.so.6 || \\\\ nix-store -q --referrers-closure ~/.nix-profile)",
+      "Bash(# Test if the problem is -fuse-ld=lld stripping rpaths echo ''int main\\(\\) { return 0; }'' echo \"\"With default linker:\"\" clang++ /tmp/test.cpp -o /tmp/test_default && ldd /tmp/test_default)",
+      "Bash(__NEW_LINE_64e06fdc8d6d9403__ echo \"\")",
+      "Bash(clang++:*)",
+      "Bash(FORCE_FFMPEG=1 bash:*)",
+      "Bash(FORCE_FFMPEG=1 ./build_ffmpeg.sh:*)",
+      "Bash(/usr/bin/ldd:*)",
+      "Bash(PKG_CONFIG_PATH=\"$HOME/ffmpeg_build/lib/pkgconfig:$HOME/ffmpeg_build/lib64/pkgconfig:$HOME/ffmpeg_build/lib/x86_64-linux-gnu/pkgconfig\" PKG_CONFIG_LIBDIR=\"$HOME/ffmpeg_build/lib/pkgconfig:$HOME/ffmpeg_build/lib64/pkgconfig:$HOME/ffmpeg_build/lib/x86_64-linux-gnu/pkgconfig\" pkg-config:*)",
+      "Bash(~/ffmpeg_build/bin/ffmpeg:*)"
+    ]
+  }
+}

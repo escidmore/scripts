@@ -1,0 +1,3388 @@
+{
+  "The Jewel and Her Lapidary": {
+    "book": {
+      "title": "The Jewel and Her Lapidary",
+      "author": "Fran Wilde",
+      "isbn": "9781427273901",
+      "asin": "B01FG740UC",
+      "abs_id": "4afbdaab-d243-4f02-a31b-49cf9949ee55",
+      "started_at": "2025-03-29",
+      "finished_at": "2025-03-29",
+      "subtitle": null,
+      "narrator": "Mahvesh Murad",
+      "publisher": "Macmillan Audio",
+      "published_date": "2016-05-24",
+      "published_year": "2016",
+      "language": "english",
+      "duration_seconds": 6496,
+      "series_name": "The Jewel Series #1",
+      "cover_path": "/mnt/audiobooks/Fran Wilde/The Jewel and Her Lapidary/cover.jpg"
+    },
+    "book_id": 439200,
+    "audio": [],
+    "enrichment_issue": null,
+    "slug": "the-jewel-and-her-lapidary",
+    "metadata": {
+      "contributions": [
+        {
+          "author_id": 225056,
+          "contribution": "Author",
+          "contributor_role_id": 1
+        },
+        {
+          "author_id": 238296,
+          "contribution": "Narrator"
+        }
+      ],
+      "publisher_id": 242
+    },
+    "metadata_issues": [],
+    "edition_id": 32342893,
+    "action": "corrected audiobook format",
+    "deferred": [],
+    "updated": true,
+    "before": {
+      "id": 6698295,
+      "status_id": 1,
+      "edition_id": 30423919,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 6698295,
+      "status_id": 3,
+      "edition_id": 32342893,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [],
+    "done": true,
+    "verified": {
+      "id": 6698295,
+      "book_id": 439200,
+      "status_id": 3,
+      "edition_id": 32342893,
+      "first_started_reading_date": "2025-03-29",
+      "last_read_date": "2025-03-29",
+      "user_book_reads": [
+        {
+          "id": 6716530,
+          "started_at": "2025-03-29",
+          "finished_at": "2025-03-29",
+          "edition_id": 32342893
+        }
+      ]
+    },
+    "cover_file": "covers/the-jewel-and-her-lapidary-4afbdaab.jpg",
+    "metadata_fill_requested": {},
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-03-29",
+      "finished_at": "2025-03-29"
+    }
+  },
+  "Overgrowth": {
+    "book": {
+      "title": "Overgrowth",
+      "author": "Mira Grant",
+      "isbn": "9781250401748",
+      "asin": "B0DFR282FJ",
+      "abs_id": "02d0ca5d-72b4-4b1d-a3dc-1442ecff946a",
+      "started_at": "2025-05-10",
+      "finished_at": "2025-05-11",
+      "subtitle": null,
+      "narrator": "Caitlin Kelly",
+      "publisher": "Macmillan Audio",
+      "published_date": "2025-05-06",
+      "published_year": "2025",
+      "language": "english",
+      "duration_seconds": 62845,
+      "series_name": null,
+      "cover_path": "/mnt/audiobooks/Mira Grant/Overgrowth/cover.jpg"
+    },
+    "book_id": 1634509,
+    "audio": [
+      {
+        "id": 32122710,
+        "title": "Overgrowth",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 62820,
+        "release_date": null,
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": null,
+        "image": null,
+        "book": {
+          "id": 1634509,
+          "slug": "overgrowth",
+          "title": "Overgrowth"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 106983,
+              "name": "Mira Grant"
+            },
+            "contribution": "Author"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "overgrowth",
+    "edition_id": 32122710,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5874529,
+      "status_id": 1,
+      "edition_id": 31844326,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5874529,
+      "status_id": 3,
+      "edition_id": 32122710,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "ISBN missing",
+      "duration needs update: 62845"
+    ],
+    "cover_file": "covers/overgrowth-02d0ca5d.jpg",
+    "done": true,
+    "verified": {
+      "id": 5874529,
+      "book_id": 1634509,
+      "status_id": 3,
+      "edition_id": 32122710,
+      "first_started_reading_date": "2025-05-10",
+      "last_read_date": "2025-05-11",
+      "user_book_reads": [
+        {
+          "id": 6716507,
+          "started_at": "2025-05-10",
+          "finished_at": "2025-05-11",
+          "edition_id": 32122710
+        }
+      ]
+    },
+    "metadata_fill_requested": {
+      "asin": "B0DFR282FJ",
+      "isbn_13": "9781250401748",
+      "release_date": "2025-05-06",
+      "language_id": 1,
+      "country_id": 1,
+      "publisher_id": 242,
+      "contributions": [
+        {
+          "author_id": 106983,
+          "contribution": "Author",
+          "contributor_role_id": 1
+        },
+        {
+          "author_id": 276462,
+          "contribution": "Narrator"
+        }
+      ]
+    },
+    "metadata_fill_notes": [
+      "isbn_10 '1250401747' is already in use by another edition"
+    ],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-10",
+      "finished_at": "2025-05-11"
+    }
+  },
+  "Ruinsong": {
+    "book": {
+      "title": "Ruinsong",
+      "author": "Julia Ember",
+      "isbn": "9781666544305",
+      "asin": "166205047X",
+      "abs_id": "f4d4a834-bb07-429d-bb25-409ac3181c2e",
+      "started_at": "2025-05-11",
+      "finished_at": "2025-05-12",
+      "subtitle": null,
+      "narrator": "Lauren Ezzo",
+      "publisher": "Dreamscape Media, LLC",
+      "published_date": "2020-11-24",
+      "published_year": "2020",
+      "language": "english",
+      "duration_seconds": 30709,
+      "series_name": null,
+      "cover_path": "/mnt/audiobooks/Julia Ember/Ruinsong/cover.jpg"
+    },
+    "book_id": 40098,
+    "audio": [],
+    "enrichment_issue": null,
+    "slug": "ruinsong",
+    "metadata": {
+      "contributions": [
+        {
+          "author_id": 148710,
+          "contribution": "Author",
+          "contributor_role_id": 1
+        },
+        {
+          "author_id": 271828,
+          "contribution": "Narrator"
+        }
+      ],
+      "publisher_id": 47801
+    },
+    "metadata_issues": [],
+    "edition_id": 33299925,
+    "action": "created audiobook",
+    "deferred": [],
+    "updated": true,
+    "before": {
+      "id": 8498354,
+      "status_id": 1,
+      "edition_id": 17580379,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 8498354,
+      "status_id": 3,
+      "edition_id": 33299925,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [],
+    "cover_file": "covers/ruinsong-f4d4a834.jpg",
+    "done": true,
+    "verified": {
+      "id": 8498354,
+      "book_id": 40098,
+      "status_id": 3,
+      "edition_id": 33299925,
+      "first_started_reading_date": "2025-05-11",
+      "last_read_date": "2025-05-12",
+      "user_book_reads": [
+        {
+          "id": 6716508,
+          "started_at": "2025-05-11",
+          "finished_at": "2025-05-12",
+          "edition_id": 33299925
+        }
+      ]
+    },
+    "metadata_fill_requested": {},
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-11",
+      "finished_at": "2025-05-12"
+    }
+  },
+  "Don't Let the Forest In": {
+    "book": {
+      "title": "Don't Let the Forest In",
+      "author": "C.G. Drews",
+      "isbn": null,
+      "asin": "B0D9WL1F4T",
+      "abs_id": "fdd7d4c3-9226-4362-aaa6-83045a41aeb0",
+      "started_at": "2025-05-12",
+      "finished_at": "2025-05-13",
+      "subtitle": null,
+      "narrator": "Michael Crouch",
+      "publisher": "Recorded Books",
+      "published_date": null,
+      "published_year": "2024",
+      "language": "English",
+      "duration_seconds": 30217,
+      "series_name": null,
+      "cover_path": "/mnt/audiobooks/C.G. Drews/Don't Let the Forest In/cover.jpg"
+    },
+    "book_id": 1043383,
+    "audio": [
+      {
+        "id": 32646386,
+        "title": "Don't Let the Forest In",
+        "isbn_13": "9783732483600",
+        "isbn_10": "3732483606",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 37200,
+        "release_date": "2025-09-23",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 51,
+          "language": "German",
+          "code2": "de"
+        },
+        "image": {
+          "id": 7167152,
+          "url": "https://assets.hardcover.app/edition/32646386/2f9355c6-8a46-444e-a851-adc74dc3f1e0.png"
+        },
+        "book": {
+          "id": 1043383,
+          "slug": "dont-let-the-forest-in",
+          "title": "Don't Let the Forest In"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 248961,
+              "name": "CG Drews"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 1361133,
+              "name": "Timo Weisschnur"
+            },
+            "contribution": "Narrator"
+          },
+          {
+            "author": {
+              "id": 1065539,
+              "name": "Britta Keil"
+            },
+            "contribution": "Translator"
+          }
+        ]
+      },
+      {
+        "id": 31710130,
+        "title": "Don't Let the Forest In",
+        "isbn_13": "9781470371760",
+        "isbn_10": "1470371766",
+        "asin": "1470371766",
+        "physical_format": null,
+        "audio_seconds": 30217,
+        "release_date": "2024-10-29",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 4304976,
+          "url": "https://assets.hardcover.app/editions/31710130/9285595750420180.jpg"
+        },
+        "book": {
+          "id": 1043383,
+          "slug": "dont-let-the-forest-in",
+          "title": "Don't Let the Forest In"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 248961,
+              "name": "CG Drews"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 255237,
+              "name": "Michael Crouch"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      },
+      {
+        "id": 32193398,
+        "title": "Don't Let the Forest In",
+        "isbn_13": "9781470371791",
+        "isbn_10": "1470371790",
+        "asin": "B0D9WN1ZM1",
+        "physical_format": null,
+        "audio_seconds": 30240,
+        "release_date": "2024-10-29",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 7142498,
+          "url": "https://assets.hardcover.app/edition/32193398/103d980e-ebf3-4f4b-a3bc-a29f9cfb59e8.jpg"
+        },
+        "book": {
+          "id": 1043383,
+          "slug": "dont-let-the-forest-in",
+          "title": "Don't Let the Forest In"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 248961,
+              "name": "CG Drews"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 255237,
+              "name": "Michael Crouch"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": "Audible author mismatch for C.G. Drews",
+    "slug": "dont-let-the-forest-in",
+    "edition_id": 31710130,
+    "action": "existing audiobook",
+    "before": {
+      "id": 6698474,
+      "status_id": 1,
+      "edition_id": 31067702,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 6698474,
+      "status_id": 3,
+      "edition_id": 31710130,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "ASIN needs update: B0D9WL1F4T",
+      "author missing: C.G. Drews"
+    ],
+    "done": true,
+    "verified": {
+      "id": 6698474,
+      "book_id": 1043383,
+      "status_id": 3,
+      "edition_id": 31710130,
+      "first_started_reading_date": "2025-05-12",
+      "last_read_date": "2025-05-13",
+      "user_book_reads": [
+        {
+          "id": 6716509,
+          "started_at": "2025-05-12",
+          "finished_at": "2025-05-13",
+          "edition_id": 31710130
+        }
+      ]
+    },
+    "cover_file": "covers/don-t-let-the-forest-in-fdd7d4c3.jpg",
+    "metadata_fill_requested": {},
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-12",
+      "finished_at": "2025-05-13"
+    }
+  },
+  "Hell's Wardens": {
+    "book": {
+      "title": "Hell's Wardens",
+      "author": "pirateaba",
+      "isbn": "9781039448254",
+      "asin": "B0DCCZ5MG2",
+      "abs_id": "0f8e829d-c103-44d8-a02b-744ec615fb7e",
+      "started_at": "2025-05-19",
+      "finished_at": "2025-05-19",
+      "subtitle": "The Wandering Inn, Book 14",
+      "narrator": "Andrea Parsneau",
+      "publisher": "Podium Audio",
+      "published_date": "2024-11-12",
+      "published_year": "2024",
+      "language": "english",
+      "duration_seconds": 95550,
+      "series_name": "The Wandering Inn #14",
+      "cover_path": "/metadata/items/0f8e829d-c103-44d8-a02b-744ec615fb7e/cover.jpg"
+    },
+    "book_id": 1576138,
+    "audio": [
+      {
+        "id": 31643085,
+        "title": "Hell's Wardens",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": "B0DCD395WK",
+        "physical_format": null,
+        "audio_seconds": 95520,
+        "release_date": "2024-11-12",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 4662458,
+          "url": "https://assets.hardcover.app/editions/31643085/2437477164790805.jpg"
+        },
+        "book": {
+          "id": 1576138,
+          "slug": "hells-wardens",
+          "title": "Hell's Wardens"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 1075177,
+              "name": "pirateaba"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 450676,
+              "name": "Andrea Parsneau"
+            },
+            "contribution": "Author"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "hells-wardens",
+    "edition_id": 31643085,
+    "action": "existing audiobook",
+    "before": {
+      "id": 6698637,
+      "status_id": 1,
+      "edition_id": 31901874,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 6698637,
+      "status_id": 3,
+      "edition_id": 31643085,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: The Wandering Inn, Book 14",
+      "ASIN needs update: B0DCCZ5MG2",
+      "duration needs update: 95550"
+    ],
+    "done": true,
+    "verified": {
+      "id": 6698637,
+      "book_id": 1576138,
+      "status_id": 3,
+      "edition_id": 31643085,
+      "first_started_reading_date": "2025-05-19",
+      "last_read_date": "2025-05-19",
+      "user_book_reads": [
+        {
+          "id": 6716510,
+          "started_at": "2025-05-19",
+          "finished_at": "2025-05-19",
+          "edition_id": 31643085
+        }
+      ]
+    },
+    "cover_file": "covers/hell-s-wardens-0f8e829d.jpg",
+    "metadata_fill_requested": {
+      "isbn_13": "9781039448254",
+      "subtitle": "The Wandering Inn, Book 14"
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-19",
+      "finished_at": "2025-05-19"
+    }
+  },
+  "The Churn": {
+    "book": {
+      "title": "The Churn: An Expanse Novella",
+      "author": "James S. A. Corey",
+      "isbn": "9781549165658",
+      "asin": "B09JB2RSL3",
+      "abs_id": "46c95671-fa39-4fd9-a01b-51150d3b8d3d",
+      "started_at": "2025-05-19",
+      "finished_at": "2025-05-19",
+      "subtitle": null,
+      "narrator": "Jefferson Mays",
+      "publisher": "Orbit",
+      "published_date": "2021-12-28",
+      "published_year": "2021",
+      "language": "english",
+      "duration_seconds": 8291,
+      "series_name": "The Expanse #0.3",
+      "cover_path": "/mnt/audiobooks/James S.A. Corey/The Churn/cover.jpg"
+    },
+    "book_id": 431008,
+    "audio": [
+      {
+        "id": 31892495,
+        "title": "The Churn: An Expanse Novella",
+        "isbn_13": "9781549165658",
+        "isbn_10": "1549165658",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 8280,
+        "release_date": "2014-04-29",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": null,
+        "image": null,
+        "book": {
+          "id": 431008,
+          "slug": "the-churn",
+          "title": "The Churn"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 263838,
+              "name": "Jefferson Mays"
+            },
+            "contribution": "Reading"
+          }
+        ]
+      },
+      {
+        "id": 32855067,
+        "title": "\u041c\u0430\u0441\u043b\u043e\u0431\u043e\u0439\u043a\u0430",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2014-01-01",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": null,
+        "image": null,
+        "book": {
+          "id": 431008,
+          "slug": "the-churn",
+          "title": "The Churn"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 1428956,
+              "name": "\u041a\u0438\u0440\u0438\u043b\u043b \u0413\u043e\u043b\u043e\u0432\u0438\u043d"
+            },
+            "contribution": "Author"
+          }
+        ]
+      },
+      {
+        "id": 32919417,
+        "title": "The Churn: The Expanse, Book 3.5",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2014-01-01",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": null,
+        "image": null,
+        "book": {
+          "id": 431008,
+          "slug": "the-churn",
+          "title": "The Churn"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          }
+        ]
+      },
+      {
+        "id": 30400886,
+        "title": "The Churn",
+        "isbn_13": "9781478929697",
+        "isbn_10": "1478929693",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 8280,
+        "release_date": "2014-06-10",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 2410390,
+          "url": "https://assets.hardcover.app/external_data/59379830/9c2bb75bf51699463a8decd3a41cb2c74f6d33e0.jpeg"
+        },
+        "book": {
+          "id": 431008,
+          "slug": "the-churn",
+          "title": "The Churn"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 255655,
+              "name": "Erik Davies"
+            },
+            "contribution": "Narrator"
+          },
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "the-churn",
+    "edition_id": 31892495,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5111633,
+      "status_id": 1,
+      "edition_id": 30448347,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111633,
+      "status_id": 3,
+      "edition_id": 31892495,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "duration needs update: 8291",
+      "publication date needs update: 2021-12-28",
+      "cover missing"
+    ],
+    "cover_file": "covers/the-churn-an-expanse-novella-46c95671.jpg",
+    "done": true,
+    "verified": {
+      "id": 5111633,
+      "book_id": 431008,
+      "status_id": 3,
+      "edition_id": 31892495,
+      "first_started_reading_date": "2025-05-19",
+      "last_read_date": "2025-05-19",
+      "user_book_reads": [
+        {
+          "id": 6716511,
+          "started_at": "2025-05-19",
+          "finished_at": "2025-05-19",
+          "edition_id": 31892495
+        }
+      ]
+    },
+    "metadata_fill_requested": {
+      "asin": "B09JB2RSL3",
+      "language_id": 1,
+      "contributions": [
+        {
+          "author_id": 85052,
+          "contribution": "Author",
+          "contributor_role_id": 1
+        },
+        {
+          "author_id": 263838,
+          "contribution": "Narrator"
+        }
+      ]
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-19",
+      "finished_at": "2025-05-19"
+    }
+  },
+  "Gods of Risk": {
+    "book": {
+      "title": "Gods of Risk",
+      "author": "James S. A. Corey",
+      "isbn": "9781549165627",
+      "asin": "B09JB97WRH",
+      "abs_id": "3f891f62-0492-4763-99bd-1b8c28af8d92",
+      "started_at": "2025-05-19",
+      "finished_at": "2025-05-19",
+      "subtitle": "An Expanse Novella",
+      "narrator": "Jefferson Mays",
+      "publisher": "Orbit",
+      "published_date": "2021-12-28",
+      "published_year": "2021",
+      "language": "english",
+      "duration_seconds": 8411,
+      "series_name": "The Expanse #2.5",
+      "cover_path": "/mnt/audiobooks/James S.A. Corey/Gods of Risk/cover.jpg"
+    },
+    "book_id": 430926,
+    "audio": [
+      {
+        "id": 31747276,
+        "title": "Gods of Risk",
+        "isbn_13": "9781478931010",
+        "isbn_10": "1478931019",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2012-01-01",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": null,
+        "image": {
+          "id": 4275496,
+          "url": "https://assets.hardcover.app/external_data/61872259/5a5ec959bb4caa96ccf5c7ba07e5d00be022d39c.jpeg"
+        },
+        "book": {
+          "id": 430926,
+          "slug": "gods-of-risk",
+          "title": "Gods of Risk"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 255655,
+              "name": "Erik Davies"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      },
+      {
+        "id": 31131630,
+        "title": "The Gods of risk",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 8400,
+        "release_date": "2012-01-01",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 6880569,
+          "url": "https://assets.hardcover.app/edition/31131630/50a39dd7-55fb-4b84-8ba0-90e413d52ff2.jpg"
+        },
+        "book": {
+          "id": 430926,
+          "slug": "gods-of-risk",
+          "title": "Gods of Risk"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          }
+        ]
+      },
+      {
+        "id": 32855068,
+        "title": "\u0411\u043e\u0433\u0438 \u0440\u0438\u0441\u043a\u0430",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2012-01-01",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": null,
+        "image": null,
+        "book": {
+          "id": 430926,
+          "slug": "gods-of-risk",
+          "title": "Gods of Risk"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 1428961,
+              "name": "\u041a\u043e\u0440\u0438\u043b\u043b \u0413\u043e\u043b\u043e\u0432\u0438\u043d"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          }
+        ]
+      },
+      {
+        "id": 8582300,
+        "title": "Gods of Risk",
+        "isbn_13": "9780316217651",
+        "isbn_10": "0316217654",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 8400,
+        "release_date": "2012-01-01",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 441204,
+          "url": "https://assets.hardcover.app/edition/8582300/7992542-L.jpg"
+        },
+        "book": {
+          "id": 430926,
+          "slug": "gods-of-risk",
+          "title": "Gods of Risk"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 255655,
+              "name": "Erik Davies"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "gods-of-risk",
+    "metadata": {
+      "contributions": [
+        {
+          "author_id": 85052,
+          "contribution": "Author",
+          "contributor_role_id": 1
+        },
+        {
+          "author_id": 263838,
+          "contribution": "Narrator"
+        }
+      ],
+      "publisher_id": 606
+    },
+    "metadata_issues": [],
+    "edition_id": 31545537,
+    "action": "corrected audiobook format",
+    "deferred": [],
+    "updated": true,
+    "before": {
+      "id": 5111632,
+      "status_id": 1,
+      "edition_id": 8582300,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111632,
+      "status_id": 3,
+      "edition_id": 31545537,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: An Expanse Novella",
+      "cover missing"
+    ],
+    "cover_file": "covers/gods-of-risk-3f891f62.jpg",
+    "done": true,
+    "verified": {
+      "id": 5111632,
+      "book_id": 430926,
+      "status_id": 3,
+      "edition_id": 31545537,
+      "first_started_reading_date": "2025-05-19",
+      "last_read_date": "2025-05-19",
+      "user_book_reads": [
+        {
+          "id": 6716535,
+          "started_at": "2025-05-19",
+          "finished_at": "2025-05-19",
+          "edition_id": 31545537
+        }
+      ]
+    },
+    "metadata_fill_requested": {
+      "subtitle": "An Expanse Novella"
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-19",
+      "finished_at": "2025-05-19"
+    }
+  },
+  "Leviathan Falls": {
+    "book": {
+      "title": "Leviathan Falls",
+      "author": "James S. A. Corey",
+      "isbn": "9781980035961",
+      "asin": "1980035962",
+      "abs_id": "29008df8-8f96-46e5-a107-6d21ada2321c",
+      "started_at": "2025-05-19",
+      "finished_at": "2025-05-19",
+      "subtitle": "Expanse, Book 9",
+      "narrator": "Jefferson Mays",
+      "publisher": "Recorded Books",
+      "published_date": "2021-11-30",
+      "published_year": "2021",
+      "language": "english",
+      "duration_seconds": 70808,
+      "series_name": "The Expanse #9",
+      "cover_path": "/metadata/items/29008df8-8f96-46e5-a107-6d21ada2321c/cover.jpg"
+    },
+    "book_id": 463439,
+    "audio": [
+      {
+        "id": 31545889,
+        "title": "Leviathan Falls",
+        "isbn_13": "9781490614366",
+        "isbn_10": "1490614362",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 70800,
+        "release_date": "2021-11-30",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 3744912,
+          "url": "https://assets.hardcover.app/external_data/61391735/2576c2d7130e1982d2ce482f3ab0906da7c07f5c.jpeg"
+        },
+        "book": {
+          "id": 463439,
+          "slug": "leviathan-falls",
+          "title": "Leviathan Falls"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 263838,
+              "name": "Jefferson Mays"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      },
+      {
+        "id": 31113620,
+        "title": "Upadek Lewiatana",
+        "isbn_13": "9788834743171",
+        "isbn_10": "8834743172",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2021-11-30",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 129,
+          "language": "Polish",
+          "code2": "pl"
+        },
+        "image": {
+          "id": 4449112,
+          "url": "https://assets.hardcover.app/external_data/61397703/5f47bf1bdfcce5e93c58b85c9c7ed0b1afa69256.jpeg"
+        },
+        "book": {
+          "id": 463439,
+          "slug": "leviathan-falls",
+          "title": "Leviathan Falls"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 406002,
+              "name": "Marek Pawelec"
+            },
+            "contribution": "Translator"
+          },
+          {
+            "author": {
+              "id": 644881,
+              "name": "Maciej Kowalik"
+            },
+            "contribution": "Narrator"
+          },
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          }
+        ]
+      },
+      {
+        "id": 32062744,
+        "title": "Leviathan Falls",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": "1980035962",
+        "physical_format": null,
+        "audio_seconds": 70868,
+        "release_date": "2021-11-30",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 5118572,
+          "url": "https://assets.hardcover.app/editions/32062744/3e83e434-6721-4a5d-ad9f-73a3ff5a2993.jpg"
+        },
+        "book": {
+          "id": 463439,
+          "slug": "leviathan-falls",
+          "title": "Leviathan Falls"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 85052,
+              "name": "James S. A. Corey"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 263838,
+              "name": "Jefferson Mays"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "leviathan-falls",
+    "correction": "Original export already Read; original identifier match pointed to an unrelated A.G. Riddle book. Corrected to James S. A. Corey book 463439.",
+    "edition_id": 32062744,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5111277,
+      "status_id": 3,
+      "edition_id": 30557811,
+      "first_started_reading_date": null,
+      "last_read_date": "2025-12-16"
+    },
+    "after": {
+      "id": 5111277,
+      "status_id": 3,
+      "edition_id": 32062744,
+      "first_started_reading_date": null,
+      "last_read_date": "2025-12-16"
+    },
+    "issues": [
+      "subtitle needs update: Expanse, Book 9",
+      "ISBN missing",
+      "duration needs update: 70808"
+    ],
+    "done": true,
+    "verified": {
+      "id": 5111277,
+      "book_id": 463439,
+      "status_id": 3,
+      "edition_id": 32062744,
+      "first_started_reading_date": null,
+      "last_read_date": "2025-12-16",
+      "user_book_reads": [
+        {
+          "id": 6716541,
+          "started_at": null,
+          "finished_at": "2025-12-16",
+          "edition_id": 32062744
+        }
+      ]
+    },
+    "cover_file": "covers/leviathan-falls-29008df8.jpg",
+    "metadata_fill_requested": {
+      "subtitle": "Expanse, Book 9"
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true
+  },
+  "Soul Taken": {
+    "book": {
+      "title": "Soul Taken",
+      "author": "Patricia Briggs",
+      "isbn": "9780593553671",
+      "asin": "0593553675",
+      "abs_id": "8131b06c-c8bd-4d38-8860-fb7048d5491e",
+      "started_at": "2025-05-19",
+      "finished_at": "2025-05-19",
+      "subtitle": "A Mercy Thompson Novel, Book 13",
+      "narrator": "Lorelei King",
+      "publisher": "Penguin Audio",
+      "published_date": "2022-08-23",
+      "published_year": "2022",
+      "language": "english",
+      "duration_seconds": 38041,
+      "series_name": "Mercy Thompson #13",
+      "cover_path": "/metadata/items/8131b06c-c8bd-4d38-8860-fb7048d5491e/cover.jpg"
+    },
+    "book_id": 502017,
+    "audio": [
+      {
+        "id": 30451866,
+        "title": "Soul Taken",
+        "isbn_13": "9780356513645",
+        "isbn_10": "0356513645",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2022-01-01",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 5573420,
+          "url": "https://assets.hardcover.app/edition/30451866/ec88e5120bea3f940f69264d7586605891d41e71.jpeg"
+        },
+        "book": {
+          "id": 502017,
+          "slug": "soul-taken",
+          "title": "Soul Taken"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 234423,
+              "name": "Patricia Briggs"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 253018,
+              "name": "Lorelei King"
+            },
+            "contribution": "narrator"
+          }
+        ]
+      },
+      {
+        "id": 32383597,
+        "title": "Soul Taken",
+        "isbn_13": "9780593553688",
+        "isbn_10": "0593553683",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2022-08-23",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 6039551,
+          "url": "https://assets.hardcover.app/external_data/1638547/c3f21534bc58f28772af979fc69c6a8e78d9e856.jpeg"
+        },
+        "book": {
+          "id": 502017,
+          "slug": "soul-taken",
+          "title": "Soul Taken"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 253018,
+              "name": "Lorelei King"
+            },
+            "contribution": "Narrator"
+          },
+          {
+            "author": {
+              "id": 234423,
+              "name": "Patricia Briggs"
+            },
+            "contribution": "Author"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "soul-taken",
+    "edition_id": 32383597,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5111713,
+      "status_id": 1,
+      "edition_id": 30458465,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111713,
+      "status_id": 3,
+      "edition_id": 32383597,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: A Mercy Thompson Novel, Book 13",
+      "ISBN needs update: 9780593553671",
+      "publisher needs update: Penguin Audio"
+    ],
+    "done": true,
+    "verified": {
+      "id": 5111713,
+      "book_id": 502017,
+      "status_id": 3,
+      "edition_id": 32383597,
+      "first_started_reading_date": "2025-05-19",
+      "last_read_date": "2025-05-19",
+      "user_book_reads": [
+        {
+          "id": 6716512,
+          "started_at": "2025-05-19",
+          "finished_at": "2025-05-19",
+          "edition_id": 32383597
+        }
+      ]
+    },
+    "cover_file": "covers/soul-taken-8131b06c.jpg",
+    "metadata_fill_requested": {
+      "asin": "0593553675",
+      "audio_seconds": 38041,
+      "country_id": 1,
+      "subtitle": "A Mercy Thompson Novel, Book 13"
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-19",
+      "finished_at": "2025-05-19"
+    }
+  },
+  "American Demon": {
+    "book": {
+      "title": "American Demon",
+      "author": "Kim Harrison",
+      "isbn": "9780593214138",
+      "asin": "0593214137",
+      "abs_id": "97e69e63-247e-40bd-8363-82a34ba69723",
+      "started_at": "2025-05-22",
+      "finished_at": "2025-05-22",
+      "subtitle": null,
+      "narrator": "Marguerite Gavin",
+      "publisher": "Penguin Audio",
+      "published_date": "2020-06-16",
+      "published_year": "2020",
+      "language": "english",
+      "duration_seconds": 68029,
+      "series_name": "The Hollows #14",
+      "cover_path": "/metadata/items/97e69e63-247e-40bd-8363-82a34ba69723/cover.jpg"
+    },
+    "book_id": 459465,
+    "audio": [
+      {
+        "id": 31951643,
+        "title": "American Demon",
+        "isbn_13": "9780593214138",
+        "isbn_10": "0593214137",
+        "asin": "B085R8ZRK8",
+        "physical_format": null,
+        "audio_seconds": 67980,
+        "release_date": "2020-06-16",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 5304717,
+          "url": "https://assets.hardcover.app/editions/31951643/c71aa15d-5442-4482-a5bd-5dc526dc6d34.jpg"
+        },
+        "book": {
+          "id": 459465,
+          "slug": "american-demon",
+          "title": "American Demon"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 246427,
+              "name": "Kim Harrison"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 250650,
+              "name": "Marguerite Gavin"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "american-demon",
+    "edition_id": 31951643,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5111082,
+      "status_id": 1,
+      "edition_id": 30397980,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111082,
+      "status_id": 3,
+      "edition_id": 31951643,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "ASIN needs update: 0593214137",
+      "duration needs update: 68029"
+    ],
+    "done": true,
+    "verified": {
+      "id": 5111082,
+      "book_id": 459465,
+      "status_id": 3,
+      "edition_id": 31951643,
+      "first_started_reading_date": "2025-05-22",
+      "last_read_date": "2025-05-22",
+      "user_book_reads": [
+        {
+          "id": 6716513,
+          "started_at": "2025-05-22",
+          "finished_at": "2025-05-22",
+          "edition_id": 31951643
+        }
+      ]
+    },
+    "cover_file": "covers/american-demon-97e69e63.jpg",
+    "metadata_fill_requested": {},
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-22",
+      "finished_at": "2025-05-22"
+    }
+  },
+  "A Damsel and a Demigod": {
+    "book": {
+      "title": "A Damsel and a Demigod",
+      "author": "Annette Marie",
+      "isbn": "9781705250525",
+      "asin": "1705250521",
+      "abs_id": "60def3e0-d1c3-4be4-b4b0-9d0b73640b8a",
+      "started_at": "2025-05-22",
+      "finished_at": "2025-05-22",
+      "subtitle": "The Guild Codex: Spellbound Series",
+      "narrator": "Nelson Hobbs",
+      "publisher": "Tantor Media",
+      "published_date": "2020-10-13",
+      "published_year": "2020",
+      "language": "english",
+      "duration_seconds": 8969,
+      "series_name": "The Guild Codex: Spellbound #0.5",
+      "cover_path": "/metadata/items/60def3e0-d1c3-4be4-b4b0-9d0b73640b8a/cover.jpg"
+    },
+    "book_id": 460330,
+    "audio": [
+      {
+        "id": 31547923,
+        "title": "A Damsel and a Demigod",
+        "isbn_13": "9798200781942",
+        "isbn_10": null,
+        "asin": "B09QFBNPN7",
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2020-10-13",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 5832683,
+          "url": "https://assets.hardcover.app/edition/31547923/21d02b1f-013b-4869-915d-a2df7d5fa2b6.jpg"
+        },
+        "book": {
+          "id": 460330,
+          "slug": "a-damsel-and-a-demigod",
+          "title": "A Damsel and a Demigod"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 246379,
+              "name": "Annette Marie"
+            },
+            "contribution": "Author"
+          }
+        ]
+      },
+      {
+        "id": 32306586,
+        "title": "A Damsel and a Demigod",
+        "isbn_13": "9798200781935",
+        "isbn_10": null,
+        "asin": "B09QFCL6BZ",
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2020-10-13",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 5832692,
+          "url": "https://assets.hardcover.app/edition/32306586/71c14435-2af7-401b-b244-f588119a07f4.jpg"
+        },
+        "book": {
+          "id": 460330,
+          "slug": "a-damsel-and-a-demigod",
+          "title": "A Damsel and a Demigod"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 246379,
+              "name": "Annette Marie"
+            },
+            "contribution": "Author"
+          }
+        ]
+      },
+      {
+        "id": 32306587,
+        "title": "A Damsel and a Demigod: Library Edition",
+        "isbn_13": "9798200781928",
+        "isbn_10": null,
+        "asin": "B09QF43TH7",
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2020-10-13",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 5832696,
+          "url": "https://assets.hardcover.app/edition/32306587/614beceb-2283-4f7a-8772-6e4008096978.jpg"
+        },
+        "book": {
+          "id": 460330,
+          "slug": "a-damsel-and-a-demigod",
+          "title": "A Damsel and a Demigod"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 246379,
+              "name": "Annette Marie"
+            },
+            "contribution": "Author"
+          }
+        ]
+      },
+      {
+        "id": 32306589,
+        "title": "A Damsel and a Demigod",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": "B0DM2GFXZT",
+        "physical_format": null,
+        "audio_seconds": 8940,
+        "release_date": "2020-10-13",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 5832698,
+          "url": "https://assets.hardcover.app/book/460330/72995eba-3a2b-45e4-9a7a-c08b67d0bdfc.jpg"
+        },
+        "book": {
+          "id": 460330,
+          "slug": "a-damsel-and-a-demigod",
+          "title": "A Damsel and a Demigod"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 246379,
+              "name": "Annette Marie"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 445972,
+              "name": "Nelson Hobbs"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "a-damsel-and-a-demigod",
+    "edition_id": 32306589,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5111072,
+      "status_id": 1,
+      "edition_id": 30411687,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111072,
+      "status_id": 3,
+      "edition_id": 32306589,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: The Guild Codex: Spellbound Series",
+      "ASIN needs update: 1705250521",
+      "duration needs update: 8969",
+      "publisher needs update: Tantor Media"
+    ],
+    "done": true,
+    "verified": {
+      "id": 5111072,
+      "book_id": 460330,
+      "status_id": 3,
+      "edition_id": 32306589,
+      "first_started_reading_date": "2025-05-22",
+      "last_read_date": "2025-05-22",
+      "user_book_reads": [
+        {
+          "id": 6716514,
+          "started_at": "2025-05-22",
+          "finished_at": "2025-05-22",
+          "edition_id": 32306589
+        }
+      ]
+    },
+    "cover_file": "covers/a-damsel-and-a-demigod-60def3e0.jpg",
+    "metadata_fill_requested": {
+      "isbn_13": "9781705250525",
+      "subtitle": "The Guild Codex: Spellbound Series"
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-22",
+      "finished_at": "2025-05-22"
+    }
+  },
+  "Randomize": {
+    "book": {
+      "title": "Randomize",
+      "author": "Andy Weir",
+      "isbn": "9781978650817",
+      "asin": "1978650817",
+      "abs_id": "5e7dce36-f49a-45f5-b757-0ba8ff1f84a5",
+      "started_at": "2025-05-22",
+      "finished_at": "2025-05-22",
+      "subtitle": "Forward collection",
+      "narrator": "Janina Gavankar",
+      "publisher": "Amazon Original Stories",
+      "published_date": "2019-09-17",
+      "published_year": "2019",
+      "language": "english",
+      "duration_seconds": 3029,
+      "series_name": "Forward Collection",
+      "cover_path": "/metadata/items/5e7dce36-f49a-45f5-b757-0ba8ff1f84a5/cover.jpg"
+    },
+    "book_id": 427926,
+    "audio": [
+      {
+        "id": 31811159,
+        "title": "Randomize",
+        "isbn_13": "9781978650817",
+        "isbn_10": "1978650817",
+        "asin": "1978650817",
+        "physical_format": null,
+        "audio_seconds": 3000,
+        "release_date": "2019-09-17",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 7204152,
+          "url": "https://assets.hardcover.app/edition/31811159/53970965039a377d89070b0ad3495eb4068acfbd.jpeg"
+        },
+        "book": {
+          "id": 427926,
+          "slug": "randomize-2019",
+          "title": "Randomize"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 123645,
+              "name": "Andy Weir"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 255643,
+              "name": "Janina Gavankar"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "randomize-2019",
+    "edition_id": 31811159,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5111348,
+      "status_id": 1,
+      "edition_id": 30390694,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111348,
+      "status_id": 3,
+      "edition_id": 31811159,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: Forward collection",
+      "duration needs update: 3029"
+    ],
+    "done": true,
+    "verified": {
+      "id": 5111348,
+      "book_id": 427926,
+      "status_id": 3,
+      "edition_id": 31811159,
+      "first_started_reading_date": "2025-05-22",
+      "last_read_date": "2025-05-22",
+      "user_book_reads": [
+        {
+          "id": 6716515,
+          "started_at": "2025-05-22",
+          "finished_at": "2025-05-22",
+          "edition_id": 31811159
+        }
+      ]
+    },
+    "cover_file": "covers/randomize-5e7dce36.jpg",
+    "metadata_fill_requested": {
+      "subtitle": "Forward collection"
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-22",
+      "finished_at": "2025-05-22"
+    }
+  },
+  "The Forgetting Moon": {
+    "book": {
+      "title": "The Forgetting Moon",
+      "author": "Brian Lee Durfee",
+      "isbn": "9781980029762",
+      "asin": "1980029768",
+      "abs_id": "b24267f7-01d2-4717-aabb-fb897b19b8e8",
+      "started_at": "2025-05-22",
+      "finished_at": "2025-05-22",
+      "subtitle": null,
+      "narrator": "Tim Gerard Reynolds",
+      "publisher": "Recorded Books",
+      "published_date": "2019-01-30",
+      "published_year": "2019",
+      "language": "english",
+      "duration_seconds": 110687,
+      "series_name": "The Five Warrior Angels #1",
+      "cover_path": "/metadata/items/b24267f7-01d2-4717-aabb-fb897b19b8e8/cover.jpg"
+    },
+    "book_id": 445546,
+    "audio": [],
+    "enrichment_issue": null,
+    "slug": "the-forgetting-moon",
+    "metadata": {
+      "contributions": [
+        {
+          "author_id": 241059,
+          "contribution": "Author",
+          "contributor_role_id": 1
+        },
+        {
+          "author_id": 250743,
+          "contribution": "Narrator"
+        }
+      ],
+      "publisher_id": 688
+    },
+    "metadata_issues": [],
+    "edition_id": 33299926,
+    "action": "created audiobook",
+    "deferred": [],
+    "updated": true,
+    "before": {
+      "id": 5111439,
+      "status_id": 1,
+      "edition_id": 10712499,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111439,
+      "status_id": 3,
+      "edition_id": 33299926,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "cover missing"
+    ],
+    "cover_file": "covers/the-forgetting-moon-b24267f7.jpg",
+    "done": true,
+    "verified": {
+      "id": 5111439,
+      "book_id": 445546,
+      "status_id": 3,
+      "edition_id": 33299926,
+      "first_started_reading_date": "2025-05-22",
+      "last_read_date": "2025-05-22",
+      "user_book_reads": [
+        {
+          "id": 6716516,
+          "started_at": "2025-05-22",
+          "finished_at": "2025-05-22",
+          "edition_id": 33299926
+        }
+      ]
+    },
+    "metadata_fill_requested": {},
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-22",
+      "finished_at": "2025-05-22"
+    }
+  },
+  "Uncanny Collateral": {
+    "book": {
+      "title": "Uncanny Collateral",
+      "author": "Brian McClellan",
+      "isbn": null,
+      "asin": "B07PXN7N1T",
+      "abs_id": "046ba269-63ce-43a3-b861-db04677bf705",
+      "started_at": "2025-05-22",
+      "finished_at": "2025-05-22",
+      "subtitle": "Valkyrie Collections, Book 1",
+      "narrator": "Luke Daniels",
+      "publisher": "Brian McClellan",
+      "published_date": "2019-04-02",
+      "published_year": "2019",
+      "language": "english",
+      "duration_seconds": 18636,
+      "series_name": "Valkyrie Collections #1",
+      "cover_path": "/metadata/items/046ba269-63ce-43a3-b861-db04677bf705/cover.jpg"
+    },
+    "book_id": 460264,
+    "audio": [],
+    "enrichment_issue": null,
+    "slug": "uncanny-collateral",
+    "metadata": {
+      "contributions": [
+        {
+          "author_id": 237896,
+          "contribution": "Author",
+          "contributor_role_id": 1
+        },
+        {
+          "author_id": 250419,
+          "contribution": "Narrator"
+        }
+      ],
+      "publisher_id": 18047
+    },
+    "metadata_issues": [],
+    "edition_id": 33299927,
+    "action": "created audiobook",
+    "deferred": [],
+    "updated": true,
+    "before": {
+      "id": 5111522,
+      "status_id": 1,
+      "edition_id": 30411615,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111522,
+      "status_id": 3,
+      "edition_id": 33299927,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: Valkyrie Collections, Book 1",
+      "cover missing"
+    ],
+    "cover_file": "covers/uncanny-collateral-046ba269.jpg",
+    "done": true,
+    "verified": {
+      "id": 5111522,
+      "book_id": 460264,
+      "status_id": 3,
+      "edition_id": 33299927,
+      "first_started_reading_date": "2025-05-22",
+      "last_read_date": "2025-05-22",
+      "user_book_reads": [
+        {
+          "id": 6716517,
+          "started_at": "2025-05-22",
+          "finished_at": "2025-05-22",
+          "edition_id": 33299927
+        }
+      ]
+    },
+    "metadata_fill_requested": {
+      "subtitle": "Valkyrie Collections, Book 1"
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-22",
+      "finished_at": "2025-05-22"
+    }
+  },
+  "Raven Stratagem": {
+    "book": {
+      "title": "Raven Stratagem",
+      "author": "Yoon Ha Lee",
+      "isbn": "9781501955884",
+      "asin": "B072JV8KMX",
+      "abs_id": "471b71de-4e91-4e8e-a87b-ac9af8a0fafd",
+      "started_at": "2025-05-25",
+      "finished_at": "2025-05-25",
+      "subtitle": "Machineries of Empire, Book 2",
+      "narrator": "Emily Woo Zeller",
+      "publisher": "Recorded Books",
+      "published_date": "2017-06-13",
+      "published_year": "2017",
+      "language": "english",
+      "duration_seconds": 49152,
+      "series_name": "Machineries of Empire #2",
+      "cover_path": "/mnt/audiobooks/Yoon Ha Lee/Raven Stratagem/cover.jpg"
+    },
+    "book_id": 430697,
+    "audio": [
+      {
+        "id": 31960281,
+        "title": "Raven Stratagem",
+        "isbn_13": "9781501915673",
+        "isbn_10": "1501915673",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 49140,
+        "release_date": "2018-01-31",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 6136732,
+          "url": "https://assets.hardcover.app/edition/31960281/703d8588-4fd9-47f0-aa4d-63a8a84d2b85.jpg"
+        },
+        "book": {
+          "id": 430697,
+          "slug": "raven-stratagem",
+          "title": "Raven Stratagem"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 233065,
+              "name": "Yoon Ha Lee"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 254945,
+              "name": "Emily Woo Zeller"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      },
+      {
+        "id": 30400659,
+        "title": "Raven Stratagem",
+        "isbn_13": "9781501955884",
+        "isbn_10": "1781085374",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2017-06-13",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 6136735,
+          "url": "https://assets.hardcover.app/external_data/1748244/67836227468e873398b0bf0bcbd5b2b3564ba103.jpeg"
+        },
+        "book": {
+          "id": 430697,
+          "slug": "raven-stratagem",
+          "title": "Raven Stratagem"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 233065,
+              "name": "Yoon Ha Lee"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 254945,
+              "name": "Emily Woo Zeller"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "raven-stratagem",
+    "edition_id": 31960281,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5111353,
+      "status_id": 1,
+      "edition_id": 31534766,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111353,
+      "status_id": 3,
+      "edition_id": 31960281,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: Machineries of Empire, Book 2",
+      "ISBN needs update: 9781501955884",
+      "duration needs update: 49152",
+      "publication date needs update: 2017-06-13"
+    ],
+    "done": true,
+    "verified": {
+      "id": 5111353,
+      "book_id": 430697,
+      "status_id": 3,
+      "edition_id": 31960281,
+      "first_started_reading_date": "2025-05-25",
+      "last_read_date": "2025-05-25",
+      "user_book_reads": [
+        {
+          "id": 6716518,
+          "started_at": "2025-05-25",
+          "finished_at": "2025-05-25",
+          "edition_id": 31960281
+        }
+      ]
+    },
+    "cover_file": "covers/raven-stratagem-471b71de.jpg",
+    "metadata_fill_requested": {
+      "asin": "B072JV8KMX",
+      "country_id": 1,
+      "subtitle": "Machineries of Empire, Book 2"
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-25",
+      "finished_at": "2025-05-25"
+    }
+  },
+  "Revenant Gun": {
+    "book": {
+      "title": "Revenant Gun",
+      "author": "Yoon Ha Lee",
+      "isbn": "9781980002468",
+      "asin": "B07DLGK6LR",
+      "abs_id": "c74462ba-9fc6-4360-8da1-28908e1e4fec",
+      "started_at": "2025-05-25",
+      "finished_at": "2025-05-25",
+      "subtitle": "Machineries of Empire, Book 3",
+      "narrator": "Emily Woo Zeller",
+      "publisher": "Recorded Books",
+      "published_date": "2018-06-12",
+      "published_year": "2018",
+      "language": "english",
+      "duration_seconds": 51867,
+      "series_name": "Machineries of Empire #3",
+      "cover_path": "/mnt/audiobooks/Yoon Ha Lee/Revenant Gun/cover.jpg"
+    },
+    "book_id": 459138,
+    "audio": [
+      {
+        "id": 31660381,
+        "title": "Revenant Gun",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 51840,
+        "release_date": "2018-01-01",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 4051118,
+          "url": "https://assets.hardcover.app/external_data/46229906/6b54a51125bbac09c6229b50b4e95f54836a6ece.jpeg"
+        },
+        "book": {
+          "id": 459138,
+          "slug": "revenant-gun",
+          "title": "Revenant Gun"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 233065,
+              "name": "Yoon Ha Lee"
+            },
+            "contribution": "Author"
+          }
+        ]
+      },
+      {
+        "id": 32419860,
+        "title": "Revenant Gun",
+        "isbn_13": "9781501915598",
+        "isbn_10": "1501915592",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 51858,
+        "release_date": "2018-06-12",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 6136740,
+          "url": "https://assets.hardcover.app/book/459138/d5cda311-26a3-4dbe-be8c-4a7e3c7f64d5.jpg"
+        },
+        "book": {
+          "id": 459138,
+          "slug": "revenant-gun",
+          "title": "Revenant Gun"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 254945,
+              "name": "Emily Woo Zeller"
+            },
+            "contribution": "Narrator"
+          },
+          {
+            "author": {
+              "id": 233065,
+              "name": "Yoon Ha Lee"
+            },
+            "contribution": "Author"
+          }
+        ]
+      },
+      {
+        "id": 32419861,
+        "title": "Revenant Gun",
+        "isbn_13": "9781980002468",
+        "isbn_10": "1980002460",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 51840,
+        "release_date": "2018-06-12",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 6136743,
+          "url": "https://assets.hardcover.app/edition/32419861/668803a0-852f-4100-b797-11409b3f6467.jpg"
+        },
+        "book": {
+          "id": 459138,
+          "slug": "revenant-gun",
+          "title": "Revenant Gun"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 254945,
+              "name": "Emily Woo Zeller"
+            },
+            "contribution": "Narrator"
+          },
+          {
+            "author": {
+              "id": 233065,
+              "name": "Yoon Ha Lee"
+            },
+            "contribution": "Author"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "revenant-gun",
+    "edition_id": 32419860,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5111358,
+      "status_id": 1,
+      "edition_id": 30400629,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111358,
+      "status_id": 3,
+      "edition_id": 32419860,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: Machineries of Empire, Book 3",
+      "ISBN needs update: 9781980002468",
+      "duration needs update: 51867"
+    ],
+    "done": true,
+    "verified": {
+      "id": 5111358,
+      "book_id": 459138,
+      "status_id": 3,
+      "edition_id": 32419860,
+      "first_started_reading_date": "2025-05-25",
+      "last_read_date": "2025-05-25",
+      "user_book_reads": [
+        {
+          "id": 6716520,
+          "started_at": "2025-05-25",
+          "finished_at": "2025-05-25",
+          "edition_id": 32419860
+        }
+      ]
+    },
+    "cover_file": "covers/revenant-gun-c74462ba.jpg",
+    "metadata_fill_requested": {
+      "asin": "B07DLGK6LR",
+      "subtitle": "Machineries of Empire, Book 3"
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-25",
+      "finished_at": "2025-05-25"
+    }
+  },
+  "Hexarchate Stories": {
+    "book": {
+      "title": "Hexarchate Stories",
+      "author": "Yoon Ha Lee",
+      "isbn": "9781980006619",
+      "asin": "198000661X",
+      "abs_id": "7a1fc8e6-2e1d-497f-aecf-0ff06f730b4c",
+      "started_at": "2025-05-25",
+      "finished_at": "2025-05-25",
+      "subtitle": null,
+      "narrator": "Emily Woo Zeller, Brian Nishii",
+      "publisher": "Recorded Books",
+      "published_date": "2019-06-25",
+      "published_year": "2019",
+      "language": "english",
+      "duration_seconds": 36737,
+      "series_name": "Machineries of Empire",
+      "cover_path": "/mnt/audiobooks/Yoon Ha Lee/Hexarchate Stories/cover.jpg"
+    },
+    "book_id": 459137,
+    "audio": [
+      {
+        "id": 32398980,
+        "title": "Hexarchate Stories",
+        "isbn_13": "9781501981272",
+        "isbn_10": "1501981277",
+        "asin": "B07T8C39M2",
+        "physical_format": null,
+        "audio_seconds": 36730,
+        "release_date": null,
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": null,
+        "image": {
+          "id": 6136693,
+          "url": "https://assets.hardcover.app/edition/32398980/cae51275-ee7f-4f1e-b9cc-1298a17821a4.jpg"
+        },
+        "book": {
+          "id": 459137,
+          "slug": "hexarchate-stories",
+          "title": "Hexarchate Stories"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 233065,
+              "name": "Yoon Ha Lee"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 254945,
+              "name": "Emily Woo Zeller"
+            },
+            "contribution": "Narrator"
+          },
+          {
+            "author": {
+              "id": 276575,
+              "name": "Brian Nishii"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "hexarchate-stories",
+    "edition_id": 32398980,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5112096,
+      "status_id": 1,
+      "edition_id": 30567068,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5112096,
+      "status_id": 3,
+      "edition_id": 32398980,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "ASIN needs update: 198000661X",
+      "ISBN needs update: 9781980006619",
+      "duration needs update: 36737"
+    ],
+    "done": true,
+    "verified": {
+      "id": 5112096,
+      "book_id": 459137,
+      "status_id": 3,
+      "edition_id": 32398980,
+      "first_started_reading_date": "2025-05-25",
+      "last_read_date": "2025-05-25",
+      "user_book_reads": [
+        {
+          "id": 6716521,
+          "started_at": "2025-05-25",
+          "finished_at": "2025-05-25",
+          "edition_id": 32398980
+        }
+      ]
+    },
+    "cover_file": "covers/hexarchate-stories-7a1fc8e6.jpg",
+    "metadata_fill_requested": {
+      "release_date": "2019-06-25",
+      "language_id": 1,
+      "country_id": 1
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-05-25",
+      "finished_at": "2025-05-25"
+    }
+  },
+  "Alpha and Omega": {
+    "book": {
+      "title": "Alpha and Omega",
+      "author": "Patricia Briggs",
+      "isbn": "9781101627334",
+      "asin": "B00B0Z8HCW",
+      "abs_id": "de55d10a-7327-48ab-b245-e1b8115ca253",
+      "started_at": "2025-06-27",
+      "finished_at": "2025-06-27",
+      "subtitle": "A Companion Novella to Cry Wolf",
+      "narrator": "Holter Graham",
+      "publisher": "Penguin Audio",
+      "published_date": "2013-02-05",
+      "published_year": "2013",
+      "language": "english",
+      "duration_seconds": 8713,
+      "series_name": "Alpha and Omega #0.5",
+      "cover_path": "/mnt/audiobooks/Patricia Briggs/Alpha and Omega/cover.jpg"
+    },
+    "book_id": 467501,
+    "audio": [
+      {
+        "id": 31020290,
+        "title": "Alpha and Omega",
+        "isbn_13": "9781101627334",
+        "isbn_10": "1101627336",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 8700,
+        "release_date": "2007-08-07",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 2698941,
+          "url": "https://assets.hardcover.app/external_data/60932077/f15a8061658ee67bae30c750ef17f5ff5c47c65a.jpeg"
+        },
+        "book": {
+          "id": 467501,
+          "slug": "alpha-and-omega-2007",
+          "title": "Alpha and Omega"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 234423,
+              "name": "Patricia Briggs"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 255115,
+              "name": "Holter Graham"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "alpha-and-omega-2007",
+    "edition_id": 31020290,
+    "action": "existing audiobook",
+    "before": {
+      "id": 5111079,
+      "status_id": 1,
+      "edition_id": 31020290,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111079,
+      "status_id": 3,
+      "edition_id": 31020290,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: A Companion Novella to Cry Wolf",
+      "duration needs update: 8713",
+      "publication date needs update: 2013-02-05"
+    ],
+    "done": true,
+    "verified": {
+      "id": 5111079,
+      "book_id": 467501,
+      "status_id": 3,
+      "edition_id": 31020290,
+      "first_started_reading_date": "2025-06-27",
+      "last_read_date": "2025-06-27",
+      "user_book_reads": [
+        {
+          "id": 6716522,
+          "started_at": "2025-06-27",
+          "finished_at": "2025-06-27",
+          "edition_id": 31020290
+        }
+      ]
+    },
+    "cover_file": "covers/alpha-and-omega-de55d10a.jpg",
+    "metadata_fill_requested": {
+      "asin": "B00B0Z8HCW",
+      "country_id": 1,
+      "subtitle": "A Companion Novella to Cry Wolf"
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-06-27",
+      "finished_at": "2025-06-27"
+    }
+  },
+  "The Masquerades of Spring": {
+    "book": {
+      "title": "The Masquerades of Spring",
+      "author": "Ben Aaronovitch",
+      "isbn": "9781541489868",
+      "asin": "B0DF84PR9C",
+      "abs_id": "6ed9e2da-aee6-4d27-845a-d6949d11ff37",
+      "started_at": "2025-06-28",
+      "finished_at": "2025-06-28",
+      "subtitle": "Rivers of London, Book 4",
+      "narrator": "Kobna Holdbrook-Smith",
+      "publisher": "Tantor Media",
+      "published_date": "2024-08-27",
+      "published_year": "2024",
+      "language": "english",
+      "duration_seconds": 16148,
+      "series_name": "Rivers of London",
+      "cover_path": "/mnt/audiobooks/Ben Aaronovitch/Rivers of London Series/The Masquerades of Spring/cover.jpg"
+    },
+    "book_id": 1316100,
+    "audio": [],
+    "enrichment_issue": null,
+    "slug": "the-masquerades-of-spring",
+    "metadata": {
+      "contributions": [
+        {
+          "author_id": 129379,
+          "contribution": "Author",
+          "contributor_role_id": 1
+        },
+        {
+          "author_id": 256176,
+          "contribution": "Narrator"
+        }
+      ],
+      "publisher_id": 616
+    },
+    "metadata_issues": [],
+    "edition_id": 32774454,
+    "action": "corrected audiobook format",
+    "deferred": [],
+    "updated": true,
+    "before": {
+      "id": 5112014,
+      "status_id": 1,
+      "edition_id": 31658021,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5112014,
+      "status_id": 3,
+      "edition_id": 32774454,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: Rivers of London, Book 4",
+      "cover missing"
+    ],
+    "cover_file": "covers/the-masquerades-of-spring-6ed9e2da.jpg",
+    "done": true,
+    "verified": {
+      "id": 5112014,
+      "book_id": 1316100,
+      "status_id": 3,
+      "edition_id": 32774454,
+      "first_started_reading_date": "2025-06-28",
+      "last_read_date": "2025-06-28",
+      "user_book_reads": [
+        {
+          "id": 6716532,
+          "started_at": "2025-06-28",
+          "finished_at": "2025-06-28",
+          "edition_id": 32774454
+        }
+      ]
+    },
+    "metadata_fill_requested": {},
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-06-28",
+      "finished_at": "2025-06-28"
+    }
+  },
+  "Kraken": {
+    "book": {
+      "title": "Kraken",
+      "author": "China Mieville",
+      "isbn": null,
+      "asin": "B003TPS0ZU",
+      "abs_id": "de336f1f-3b98-4416-8f3d-47e565544f7e",
+      "started_at": "2025-07-22",
+      "finished_at": "2025-07-22",
+      "subtitle": null,
+      "narrator": "John Lee",
+      "publisher": "Random House Audio",
+      "published_date": null,
+      "published_year": "2010",
+      "language": "English",
+      "duration_seconds": 58231,
+      "series_name": null,
+      "cover_path": "/mnt/audiobooks/China Mi\u00e9ville/Kraken/cover.jpg"
+    },
+    "book_id": 295020,
+    "audio": [
+      {
+        "id": 31094917,
+        "title": "Kraken",
+        "isbn_13": "9780307735942",
+        "isbn_10": "030773594X",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 66480,
+        "release_date": "2010-01-01",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": null,
+        "image": {
+          "id": 1601885,
+          "url": "https://assets.hardcover.app/external_data/60244339/821d1ec2a1e82c385d5fa60936639b2595264bff.jpeg"
+        },
+        "book": {
+          "id": 295020,
+          "slug": "kraken",
+          "title": "Kraken"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 97055,
+              "name": "John Lee"
+            },
+            "contribution": "Narrator"
+          },
+          {
+            "author": {
+              "id": 84797,
+              "name": "China Mi\u00e9ville"
+            },
+            "contribution": "Author"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": "Audible author mismatch for China Mieville",
+    "slug": "kraken",
+    "edition_id": 31094917,
+    "action": "existing audiobook",
+    "before": {
+      "id": 10712022,
+      "status_id": 1,
+      "edition_id": 31094917,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 10712022,
+      "status_id": 3,
+      "edition_id": 31094917,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "duration needs update: 58231",
+      "author missing: China Mieville"
+    ],
+    "done": true,
+    "verified": {
+      "id": 10712022,
+      "book_id": 295020,
+      "status_id": 3,
+      "edition_id": 31094917,
+      "first_started_reading_date": "2025-07-22",
+      "last_read_date": "2025-07-22",
+      "user_book_reads": [
+        {
+          "id": 6716523,
+          "started_at": "2025-07-22",
+          "finished_at": "2025-07-22",
+          "edition_id": 31094917
+        }
+      ]
+    },
+    "cover_file": "covers/kraken-de336f1f.jpg",
+    "metadata_fill_requested": {
+      "asin": "B003TPS0ZU",
+      "language_id": 1
+    },
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-07-22",
+      "finished_at": "2025-07-22"
+    }
+  },
+  "My Darling Dreadful Thing": {
+    "book": {
+      "title": "My Darling Dreadful Thing",
+      "author": "Johanna van Veen",
+      "isbn": "9798765083529",
+      "asin": "B0D6NKHWY2",
+      "abs_id": "ae3315c1-6fbb-443b-984a-fd36c08531ee",
+      "started_at": "2025-10-18",
+      "finished_at": "2025-10-18",
+      "subtitle": "A Novel",
+      "narrator": "Jess Nesling",
+      "publisher": "Tantor Media",
+      "published_date": "2024-06-25",
+      "published_year": "2024",
+      "language": "english",
+      "duration_seconds": 35905,
+      "series_name": null,
+      "cover_path": "/mnt/audiobooks/Johanna van Veen/My Darling Dreadful Thing/cover.jpg"
+    },
+    "book_id": 1049045,
+    "audio": [
+      {
+        "id": 31927403,
+        "title": "My Darling Dreadful Thing",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": "B0D6NJDPXV",
+        "physical_format": null,
+        "audio_seconds": 35880,
+        "release_date": "2024-06-25",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 4842967,
+          "url": "https://assets.hardcover.app/editions/31927403/b0daada1-6353-4d16-84f3-2c02db228822.jpg"
+        },
+        "book": {
+          "id": 1049045,
+          "slug": "my-darling-dreadful-thing",
+          "title": "My Darling Dreadful Thing"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 625164,
+              "name": "Johanna van Veen"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 581361,
+              "name": "Jess Nesling"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "my-darling-dreadful-thing",
+    "edition_id": 31927403,
+    "action": "existing audiobook",
+    "before": {
+      "id": 6698582,
+      "status_id": 1,
+      "edition_id": 32089459,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 6698582,
+      "status_id": 3,
+      "edition_id": 31927403,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "subtitle needs update: A Novel",
+      "ASIN needs update: B0D6NKHWY2",
+      "ISBN missing",
+      "duration needs update: 35905",
+      "publisher needs update: Tantor Media"
+    ],
+    "done": true,
+    "verified": {
+      "id": 6698582,
+      "book_id": 1049045,
+      "status_id": 3,
+      "edition_id": 31927403,
+      "first_started_reading_date": "2025-10-18",
+      "last_read_date": "2025-10-18",
+      "user_book_reads": [
+        {
+          "id": 6716524,
+          "started_at": "2025-10-18",
+          "finished_at": "2025-10-18",
+          "edition_id": 31927403
+        }
+      ]
+    },
+    "cover_file": "covers/my-darling-dreadful-thing-ae3315c1.jpg",
+    "metadata_fill_requested": {
+      "isbn_13": "9798765083529",
+      "subtitle": "A Novel"
+    },
+    "metadata_fill_notes": [
+      "isbn_13 '9798765083529' is already in use by another edition"
+    ],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-10-18",
+      "finished_at": "2025-10-18"
+    }
+  },
+  "House of Monstrous Women": {
+    "book": {
+      "title": "House of Monstrous Women",
+      "author": "Daphne Fama",
+      "isbn": "9798217074853",
+      "asin": "B0DNLK64NY",
+      "abs_id": "7b7e5145-bb33-4419-84b6-67749cb5e6ae",
+      "started_at": "2025-11-15",
+      "finished_at": "2025-11-15",
+      "subtitle": null,
+      "narrator": "Jensen Olaya",
+      "publisher": "Penguin Audio",
+      "published_date": "2025-08-12",
+      "published_year": "2025",
+      "language": "english",
+      "duration_seconds": 41852,
+      "series_name": null,
+      "cover_path": "/mnt/audiobooks/Daphne Fama/House of Monstrous Women/cover.jpg"
+    },
+    "book_id": 1718141,
+    "audio": [
+      {
+        "id": 32584112,
+        "title": "House of Monstrous Women",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": 41820,
+        "release_date": null,
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": null,
+        "image": null,
+        "book": {
+          "id": 1718141,
+          "slug": "house-of-monstrous-women",
+          "title": "House of Monstrous Women"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 823328,
+              "name": "Daphne Fama"
+            },
+            "contribution": "Author"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "house-of-monstrous-women",
+    "edition_id": 32584112,
+    "action": "existing audiobook",
+    "before": {
+      "id": 10140312,
+      "status_id": 1,
+      "edition_id": 31816288,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 10140312,
+      "status_id": 3,
+      "edition_id": 32584112,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [
+      "ISBN missing",
+      "duration needs update: 41852",
+      "cover missing"
+    ],
+    "cover_file": "covers/house-of-monstrous-women-7b7e5145.jpg",
+    "done": true,
+    "verified": {
+      "id": 10140312,
+      "book_id": 1718141,
+      "status_id": 3,
+      "edition_id": 32584112,
+      "first_started_reading_date": "2025-11-15",
+      "last_read_date": "2025-11-15",
+      "user_book_reads": [
+        {
+          "id": 6716526,
+          "started_at": "2025-11-15",
+          "finished_at": "2025-11-15",
+          "edition_id": 32584112
+        }
+      ]
+    },
+    "metadata_fill_requested": {
+      "asin": "B0DNLK64NY",
+      "isbn_13": "9798217074853",
+      "release_date": "2025-08-12",
+      "language_id": 1,
+      "country_id": 1,
+      "publisher_id": 4,
+      "contributions": [
+        {
+          "author_id": 823328,
+          "contribution": "Author",
+          "contributor_role_id": 1
+        },
+        {
+          "author_id": 1248480,
+          "contribution": "Narrator"
+        }
+      ]
+    },
+    "metadata_fill_notes": [
+      "isbn_13 '9798217074853' is already in use by another edition"
+    ],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2025-11-15",
+      "finished_at": "2025-11-15"
+    }
+  },
+  "The Woods All Black": {
+    "book": {
+      "title": "The Woods All Black",
+      "author": "Lee Mandelo",
+      "isbn": "9798855574289",
+      "asin": "B0DT2DBKZT",
+      "abs_id": "edeaeb67-ef16-415b-910d-b8868c20144e",
+      "started_at": "2026-01-23",
+      "finished_at": "2026-01-23",
+      "subtitle": null,
+      "narrator": "Charli Burrow",
+      "publisher": "Tantor Media",
+      "published_date": "2025-01-28",
+      "published_year": "2025",
+      "language": "english",
+      "duration_seconds": 16541,
+      "series_name": null,
+      "cover_path": "/mnt/audiobooks/Lee Mandelo/The Woods All Black/cover.jpg"
+    },
+    "book_id": 1070615,
+    "audio": [],
+    "enrichment_issue": null,
+    "slug": "the-woods-all-black",
+    "metadata": {
+      "contributions": [
+        {
+          "author_id": 246063,
+          "contribution": "Author",
+          "contributor_role_id": 1
+        },
+        {
+          "author_id": 1076326,
+          "contribution": "Narrator"
+        }
+      ],
+      "publisher_id": 616
+    },
+    "metadata_issues": [],
+    "edition_id": 33299928,
+    "action": "created audiobook",
+    "deferred": [],
+    "updated": true,
+    "before": {
+      "id": 5111510,
+      "status_id": 1,
+      "edition_id": 31094693,
+      "first_started_reading_date": null,
+      "last_read_date": null
+    },
+    "after": {
+      "id": 5111510,
+      "status_id": 3,
+      "edition_id": 33299928,
+      "first_started_reading_date": null,
+      "last_read_date": "2026-09-11"
+    },
+    "issues": [],
+    "cover_file": "covers/the-woods-all-black-edeaeb67.jpg",
+    "done": true,
+    "verified": {
+      "id": 5111510,
+      "book_id": 1070615,
+      "status_id": 3,
+      "edition_id": 33299928,
+      "first_started_reading_date": "2026-01-23",
+      "last_read_date": "2026-01-23",
+      "user_book_reads": [
+        {
+          "id": 6716527,
+          "started_at": "2026-01-23",
+          "finished_at": "2026-01-23",
+          "edition_id": 33299928
+        }
+      ]
+    },
+    "metadata_fill_requested": {},
+    "metadata_fill_notes": [],
+    "metadata_fill_done": true,
+    "abs_dates_applied": {
+      "started_at": "2026-01-23",
+      "finished_at": "2026-01-23"
+    }
+  },
+  "Dead Silence": {
+    "book": {
+      "title": "Dead Silence",
+      "author": "S.A. Barnes",
+      "isbn": "9781250841346",
+      "asin": "1250841348",
+      "abs_id": "e7eafa57-7ecd-4d3e-823a-f34a40fc024d",
+      "started_at": "2026-09-09",
+      "finished_at": "2026-09-10",
+      "subtitle": null,
+      "narrator": "Lauren Ezzo",
+      "publisher": "Macmillan Audio",
+      "published_date": "2022-02-08",
+      "published_year": "2022",
+      "language": "english",
+      "duration_seconds": 47317,
+      "series_name": null,
+      "cover_path": "/mnt/audiobooks/S.A. Barnes/Dead Silence/cover.jpg"
+    },
+    "book_id": 475184,
+    "audio": [
+      {
+        "id": 31545944,
+        "title": "Dead Silence",
+        "isbn_13": null,
+        "isbn_10": null,
+        "asin": "1250841348",
+        "physical_format": null,
+        "audio_seconds": 46200,
+        "release_date": "2022-02-08",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 7927140,
+          "url": "https://assets.hardcover.app/edition/31545944/83faa6e2-0819-4aa4-8f51-543f81718e6e.jpg"
+        },
+        "book": {
+          "id": 475184,
+          "slug": "dead-silence-2022",
+          "title": "Dead Silence"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 254131,
+              "name": "S.A. Barnes"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 271828,
+              "name": "Lauren Ezzo"
+            },
+            "contribution": "Narrator"
+          }
+        ]
+      },
+      {
+        "id": 32143561,
+        "title": "Dead Silence",
+        "isbn_13": "9781250841346",
+        "isbn_10": "1250841348",
+        "asin": null,
+        "physical_format": null,
+        "audio_seconds": null,
+        "release_date": "2022-02-08",
+        "reading_format": {
+          "id": 2,
+          "format": "Listened"
+        },
+        "language": {
+          "id": 1,
+          "language": "English",
+          "code2": "en"
+        },
+        "image": {
+          "id": 5355281,
+          "url": "https://assets.hardcover.app/external_data/829431/5eab3d8cc22eac17f6fbf692d68fc16a758029e0.jpeg"
+        },
+        "book": {
+          "id": 475184,
+          "slug": "dead-silence-2022",
+          "title": "Dead Silence"
+        },
+        "contributions": [
+          {
+            "author": {
+              "id": 254131,
+              "name": "S.A. Barnes"
+            },
+            "contribution": "Author"
+          },
+          {
+            "author": {
+              "id": 271828,
+              "name": "Lauren Ezzo"
+            },
+            "contribution": "n"
+          }
+        ]
+      }
+    ],
+    "enrichment_issue": null,
+    "slug": "dead-silence-2022",
+    "edition_id": 31545944,
+    "action": "existing audiobook",
+    "before": {
+      "id": 10730600,
+      "status_id": 3,
+      "edition_id": 31545944,
+      "first_started_reading_date": "2026-09-09",
+      "last_read_date": "2026-09-10"
+    },
+    "after": {
+      "id": 10730600,
+      "status_id": 3,
+      "edition_id": 31545944,
+      "first_started_reading_date": "2026-09-09",
+      "last_read_date": "2026-09-10"
+    },
+    "issues": [
+      "ISBN missing",
+      "duration needs update: 47317"
+    ],
+    "done": true,
+    "verified": {
+      "id": 10730600,
+      "book_id": 475184,
+      "status_id": 3,
+      "edition_id": 31545944,
+      "first_started_reading_date": "2026-09-09",
+      "last_read_date": "2026-09-10",
+      "user_book_reads": [
+        {
+          "id": 6691804,
+          "started_at": "2026-09-09",
+          "finished_at": "2026-09-10",
+          "edition_id": 31545944
+        }
+      ]
+    },
+    "cover_file": "covers/dead-silence-e7eafa57.jpg",
+    "metadata_fill_requested": {
+      "isbn_13": "9781250841346"
+    },
+    "metadata_fill_notes": [
+      "isbn_10 '1250841348' is already in use by another edition"
+    ],
+    "metadata_fill_done": true
+  }
+}

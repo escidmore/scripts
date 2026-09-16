@@ -1,0 +1,4 @@
+title	author	reason	goodreads_url	confidence	evidence	error	isbn	asin	amazon_url
+Inkpot Gods	Seanan McGuire	no direct Goodreads book ID	https://www.goodreads.com/work/editions/299308829-inkpot-gods	low	fell back to Goodreads editions page			B0GVTNNDFJ	https://www.amazon.com/dp/B0GVTNNDFJ
+Andy in the Apocalypse	Plum Parrot	no direct Goodreads book ID	https://www.goodreads.com/work/editions/297215979-andy-in-the-apocalypse-3	low	fell back to Goodreads editions page			B0GLQTDFKK	https://www.amazon.com/dp/B0GLQTDFKK
+Green Crime	Julia Shaw	no direct Goodreads book ID	https://www.goodreads.com/work/editions/263005374-green-crime	low	fell back to Goodreads editions page		9781645023814	B0FW5T4J31	https://www.amazon.com/dp/B0FW5T4J31

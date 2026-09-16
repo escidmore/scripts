@@ -1,0 +1,46 @@
+{
+  "book": {
+    "title": "Empaths and Operators: A Cyberpunk Adventure",
+    "author": "Plum Parrot",
+    "isbn": "9798347014231",
+    "asin": "B0GZJ4W2XN",
+    "abs_id": "2590c18d-4e09-4406-88e9-ce630c86d600",
+    "started_at": null,
+    "finished_at": null,
+    "subtitle": "Neon Dust, Book 2",
+    "narrator": "Suzy Jackson, Robb Moreira",
+    "publisher": "Podium Audio",
+    "published_date": "2026-09-08",
+    "published_year": "2026",
+    "language": "english",
+    "duration_seconds": 60130,
+    "series_name": "Neon Dust #2",
+    "cover_path": "/metadata/items/2590c18d-4e09-4406-88e9-ce630c86d600/cover.jpg"
+  },
+  "edition_id": 33300426,
+  "url": "https://hardcover.app/books/empaths-and-operators/editions/33300426",
+  "metadata": {
+    "contributions": [
+      {
+        "author_id": 407172,
+        "contribution": "Author",
+        "contributor_role_id": 1
+      },
+      {
+        "author_id": 255775,
+        "contribution": "Narrator"
+      },
+      {
+        "author_id": 327679,
+        "contribution": "Narrator"
+      }
+    ],
+    "publisher_id": 24542
+  },
+  "deferred": [],
+  "cover_file": "covers/empaths-and-operators-a-cyberpunk-adventure-2590c18d.jpg",
+  "audit": [
+    "subtitle needs update: Neon Dust, Book 2",
+    "cover missing"
+  ]
+}
