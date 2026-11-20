@@ -87,6 +87,9 @@ git_update() {
 	local url="$1"
 	local dir="$2"
 	local depth="${3:-1}"
+	local branch="${4:-}"
+	local depth_args=()
+	[[ "$depth" -gt 0 ]] && depth_args=(--depth "$depth")
 
 	if [[ -d "$dir/.git" ]]; then
 		if [[ "$FORCE_ALL" == "1" ]]; then
@@ -94,13 +97,18 @@ git_update() {
 			return 0
 		fi
 
-		git -C "$dir" fetch --prune origin
 		local old_head new_head
 		old_head=$(git -C "$dir" rev-parse HEAD)
-		new_head=$(git -C "$dir" rev-parse origin/HEAD 2>/dev/null ||
+		if [[ -n "$branch" ]]; then
+			git -C "$dir" fetch "${depth_args[@]}" origin "$branch"
+			new_head=$(git -C "$dir" rev-parse FETCH_HEAD)
+		else
+			git -C "$dir" fetch --prune origin
+			new_head=$(git -C "$dir" rev-parse origin/HEAD 2>/dev/null ||
 			git -C "$dir" rev-parse origin/main 2>/dev/null ||
 			git -C "$dir" rev-parse origin/master 2>/dev/null ||
 			git -C "$dir" rev-parse FETCH_HEAD)
+		fi
 
 		if [[ "$old_head" != "$new_head" ]]; then
 			echo "Updating $dir: $old_head -> $new_head"
@@ -110,11 +118,7 @@ git_update() {
 		echo "No changes in $dir"
 		return 1
 	else
-		if [[ "$depth" -gt 0 ]]; then
-			git clone --depth "$depth" "$url" "$dir"
-		else
-			git clone "$url" "$dir"
-		fi
+		git clone "${depth_args[@]}" ${branch:+"--branch=$branch"} "$url" "$dir"
 		return 0
 	fi
 }
@@ -456,7 +460,7 @@ echo "=========================================="
 echo "Building SVT-AV1-Essential"
 echo "=========================================="
 cd "$HOME/repo"
-if git_update "https://github.com/nekotrix/SVT-AV1-Essential" "SVT-AV1-Essential" 1; then
+if git_update "https://github.com/nekotrix/SVT-AV1-Essential" "SVT-AV1-Essential" 1 "${SVT_BRANCH:-}"; then
 	cd "$HOME/repo/SVT-AV1-Essential"
 	rm -rf build && mkdir build && cd build
 
